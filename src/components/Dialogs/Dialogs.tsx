@@ -12,29 +12,28 @@ import {NavLink} from 'react-router-dom';
 //     {user: 'Sveta', path: '/dialogs/7'}
 // ]
 
-type DialodItemPropsType = {
+type DialogItemPropsType = {
     name: string
     id: number
 }
 
-const DialogItem: React.FC<DialodItemPropsType> = (props) => {
-    let path = '/dialogs/' + props.id
+const DialogItem = ({name, id, ...props}: DialogItemPropsType) => {
+    let path = '/dialogs/' + id
     return (
         <div className={s.dialog + ' ' + s.active}>
-            <NavLink to={path}>{props.name}</NavLink>
+            <NavLink to={path}>{name}</NavLink>
         </div>
     )
 }
 
-type MessegePropsType={
-    messege:string
+type MessagePropsType = {
+    message: string
 }
 
-const Messege:React.FC<MessegePropsType> = (props) => {
+const Message = ({message, ...props}: MessagePropsType) => {
     return (
-        <div className={s.messege}>{props.messege}</div>
+        <div className={s.message}>{message}</div>
     )
-
 }
 
 export const Dialogs = () => {
@@ -46,16 +45,16 @@ export const Dialogs = () => {
                 <DialogItem name={'Kisa'} id={3}/>
                 <DialogItem name={'Vlad'} id={4}/>
                 <DialogItem name={'Gnedko'} id={5}/>
-                <DialogItem name={'Malish'} id={6}/>
+                <DialogItem name={'Malysh'} id={6}/>
                 <DialogItem name={'Artem'} id={7}/>
             </div>
             <div className={s.messeges}>
-                <Messege messege={'Ho!'}/>
-                <Messege messege={'How are you?'}/>
-                <Messege messege={'What about one cup of coffe?'}/>
-                <Messege messege={'Great!'}/>
-                <Messege messege={'My name Jora Smolenski'}/>
-                <Messege messege={'It\'s joke'}/>
+                <Message message={'Ho!'}/>
+                <Message message={'How are you?'}/>
+                <Message message={'What about one cup of coffe?'}/>
+                <Message message={'Great!'}/>
+                <Message message={'My name Jora Smolenski'}/>
+                <Message message={'It\'s joke'}/>
             </div>
         </div>
     )
