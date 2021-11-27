@@ -6,7 +6,9 @@ const MyPost = () => {
 
     let postData = [
         {id: 1, message: 'Hi! How are you?', numberLike: 5},
-        {id: 2, message: 'It\'s my first post', numberLike: 10}
+        {id: 2, message: 'It\'s my first post', numberLike: 45},
+        {id: 3, message: 'Welcome to hell', numberLike: 12},
+        {id: 4, message: 'My beautiful daughter', numberLike: 457}
     ]
 
     return (

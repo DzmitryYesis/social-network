@@ -4,7 +4,7 @@ import s from './Navbar.module.css';
 
 const arrNavBar = [
     {path: '/profile', title: 'My Profile'},
-    {path: '/dialogs', title: 'My Messeges'},
+    {path: '/dialogs', title: 'My Messages'},
     {path: '/news', title: 'News'},
     {path: '/music', title: 'My Music'},
     {path: '/settings', title: 'Settings'}
