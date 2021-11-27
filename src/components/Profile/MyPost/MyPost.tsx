@@ -2,14 +2,18 @@ import s from './MyPost.module.css';
 import React from 'react';
 import Post from './Post/Post';
 
-const MyPost = () => {
+type MyPostProps = {
+    value: Array<PostDataPropsType>
+}
 
-    let postData = [
-        {id: 1, message: 'Hi! How are you?', numberLike: 5},
-        {id: 2, message: 'It\'s my first post', numberLike: 45},
-        {id: 3, message: 'Welcome to hell', numberLike: 12},
-        {id: 4, message: 'My beautiful daughter', numberLike: 457}
-    ]
+
+type PostDataPropsType = {
+    id: number
+    message: string
+    numberLike: number
+}
+
+const MyPost = ({value,...props}:MyPostProps) => {
 
     return (
         <div className={s.postBlock}>
@@ -22,7 +26,7 @@ const MyPost = () => {
             </div>
             <div className={s.posts}>
                 {
-                    postData.map(p => <Post message={p.message} numberLike={p.numberLike}/>)
+                    value.map(v => <Post message={v.message} numberLike={v.numberLike}/>)
                 }
             </div>
         </div>
