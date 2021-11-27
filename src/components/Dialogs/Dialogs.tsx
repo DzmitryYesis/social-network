@@ -12,6 +12,7 @@ import {NavLink} from 'react-router-dom';
 //     {user: 'Sveta', path: '/dialogs/7'}
 // ]
 
+
 type DialogItemPropsType = {
     name: string
     id: number
@@ -28,6 +29,7 @@ const DialogItem = ({name, id, ...props}: DialogItemPropsType) => {
 
 type MessagePropsType = {
     message: string
+    id:number
 }
 
 const Message = ({message, ...props}: MessagePropsType) => {
@@ -37,24 +39,44 @@ const Message = ({message, ...props}: MessagePropsType) => {
 }
 
 export const Dialogs = () => {
+
+    let dialogsData = [
+        {id: 1, name: 'Brat'},
+        {id: 2, name: 'Nastya'},
+        {id: 3, name: 'Kisa'},
+        {id: 4, name: 'Vlad'},
+        {id: 5, name: 'Gnedko'},
+        {id: 6, name: 'Malysh'},
+        {id: 7, name: 'Artem'}
+    ]
+
+    let messageData = [
+        {id: 1, message: 'Ho!'},
+        {id: 2, message: 'How are you?'},
+        {id: 3, message: 'What about one cup of coffe?'},
+        {id: 4, message: 'Great!'},
+        {id: 5, message: 'My name Jora Smolenski'},
+        {id: 6, message: 'It\'s joke'}
+    ]
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <DialogItem name={'Brat'} id={1}/>
-                <DialogItem name={'Nastya'} id={2}/>
-                <DialogItem name={'Kisa'} id={3}/>
-                <DialogItem name={'Vlad'} id={4}/>
-                <DialogItem name={'Gnedko'} id={5}/>
-                <DialogItem name={'Malysh'} id={6}/>
-                <DialogItem name={'Artem'} id={7}/>
+                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
+                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
+                <DialogItem name={dialogsData[2].name} id={dialogsData[2].id}/>
+                <DialogItem name={dialogsData[3].name} id={dialogsData[3].id}/>
+                <DialogItem name={dialogsData[4].name} id={dialogsData[4].id}/>
+                <DialogItem name={dialogsData[5].name} id={dialogsData[5].id}/>
+                <DialogItem name={dialogsData[6].name} id={dialogsData[6].id}/>
             </div>
             <div className={s.messeges}>
-                <Message message={'Ho!'}/>
-                <Message message={'How are you?'}/>
-                <Message message={'What about one cup of coffe?'}/>
-                <Message message={'Great!'}/>
-                <Message message={'My name Jora Smolenski'}/>
-                <Message message={'It\'s joke'}/>
+                <Message message={messageData[0].message} id={messageData[0].id}/>
+                <Message message={messageData[1].message} id={messageData[1].id}/>
+                <Message message={messageData[2].message} id={messageData[2].id}/>
+                <Message message={messageData[3].message} id={messageData[3].id}/>
+                <Message message={messageData[4].message} id={messageData[4].id}/>
+                <Message message={messageData[5].message} id={messageData[5].id}/>
             </div>
         </div>
     )
