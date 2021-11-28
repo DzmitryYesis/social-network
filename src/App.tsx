@@ -10,11 +10,11 @@ import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
 import {StateType} from './redux/state';
 
-const App = ({profilePage,dialogsPage,...props}:StateType) => {
+const App = ({profilePage,dialogsPage,sidebar,...props}:StateType) => {
     return (
             <div className={'app-wrapper'}>
                 <Header/>
-                <Navbar/>
+                <Navbar friendsData={sidebar.friendsData}/>
                 <div className={'app-wrapper-content'}>
                     <Routes>
                         <Route path={'/profile'} element={<Profile postData={profilePage.postData}/>}/>

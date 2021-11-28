@@ -1,3 +1,5 @@
+import {stringify} from 'querystring';
+
 export type PostDataPropsType = {
     id?: number
     message: string
@@ -23,11 +25,20 @@ export type DialogsPagePropsType = {
     messagesData: Array<MessageDataPropsType>
 }
 
+export type FriendsPropsType = {
+    name: string
+    logo: string
+}
+
+export type FriendsDataPropsType = {
+    friendsData: Array<FriendsPropsType>
+}
+
 export type StateType = {
     profilePage: ProfilePagePropsType
     dialogsPage: DialogsPagePropsType
+    sidebar: FriendsDataPropsType
 }
-export type AppType=StateType
 
 export let state = {
     profilePage: {
@@ -56,6 +67,20 @@ export let state = {
             {id: 4, message: 'Great!'},
             {id: 5, message: 'My name Jora Smolenski'},
             {id: 6, message: 'It\'s joke'}
+        ]
+    },
+    sidebar: {
+        friendsData: [
+            {name: 'Vasia', logo: 'https://www.meme-arsenal.com/memes/87d4bfeed251dba0ce946e9e594dbdb6.jpg'},
+            {
+                name: 'Slava',
+                logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsb7SOxwRvIFEmASzSMODt5uyBrC1IF11vNl9hA4LQ5XeSIKX-J0fqhRruNH4Q4VP0HJA&usqp=CAU'
+            },
+            {
+                name: 'Victor',
+                logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSICcLEiVZAd8p9NH7V2-xhJg_mrCvzIUswvyfZlnu1DuYspqNltDOUXtkzskIain1gJmI&usqp=CAU'
+            }
+
         ]
     }
 }

@@ -10,7 +10,7 @@ import {BrowserRouter} from 'react-router-dom';
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <App profilePage={state.profilePage} dialogsPage={state.dialogsPage}/>
+            <App profilePage={state.profilePage} dialogsPage={state.dialogsPage} sidebar={state.sidebar}/>
         </BrowserRouter>
     </React.StrictMode>
     , document.getElementById('root')
