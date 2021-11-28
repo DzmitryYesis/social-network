@@ -1,11 +1,8 @@
 import s from './Post.module.css';
 import React from 'react';
+import {PostDataPropsType} from '../../../../redux/state';
 
-type PostPropsType ={
-    message:string
-    numberLike:number
-}
-const Post = ({message, numberLike, ...props}:PostPropsType) => {
+const Post = ({message, numberLike, ...props}:PostDataPropsType) => {
     return (
         <div className={s.item}>
             <img

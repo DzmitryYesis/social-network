@@ -2,23 +2,16 @@ import React from 'react';
 import s from './Profile.module.css'
 import MyPost from './MyPost/MyPost';
 import {ProfileInfo} from './ProfileInfo/ProfileInfo';
+import {ProfilePagePropsType} from '../../redux/state';
 
-type ProfilePropsType={
-    value: Array<PostDataPropsType>
-}
 
-type PostDataPropsType = {
-    id: number
-    message: string
-    numberLike: number
-}
 
-export const Profile = ({value,...props}:ProfilePropsType) => {
+export const Profile = ({postData,...props}:ProfilePagePropsType) => {
 
     return (
         <div>
             <ProfileInfo/>
-            <MyPost value={value}/>
+            <MyPost postData={postData}/>
         </div>
     )
 

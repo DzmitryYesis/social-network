@@ -1,19 +1,10 @@
 import s from './MyPost.module.css';
 import React from 'react';
 import Post from './Post/Post';
-
-type MyPostProps = {
-    value: Array<PostDataPropsType>
-}
+import {ProfilePagePropsType} from '../../../redux/state';
 
 
-type PostDataPropsType = {
-    id: number
-    message: string
-    numberLike: number
-}
-
-const MyPost = ({value,...props}:MyPostProps) => {
+const MyPost = ({postData,...props}:ProfilePagePropsType) => {
 
     return (
         <div className={s.postBlock}>
@@ -26,7 +17,7 @@ const MyPost = ({value,...props}:MyPostProps) => {
             </div>
             <div className={s.posts}>
                 {
-                    value.map(v => <Post message={v.message} numberLike={v.numberLike}/>)
+                    postData.map(v => <Post message={v.message} numberLike={v.numberLike}/>)
                 }
             </div>
         </div>
