@@ -4,8 +4,13 @@ import {DialogItem} from './DialogItem/DialogItem';
 import {Message} from './Message/Message';
 import {DialogsPagePropsType} from '../../redux/state';
 
-export const Dialogs = ({dialogsData, messagesData,...props}:DialogsPagePropsType) => {
+export const Dialogs = ({dialogsData, messagesData, ...props}: DialogsPagePropsType) => {
 
+    let sendMessageRef = React.createRef<HTMLTextAreaElement>()
+
+    const sendMessage = () => {
+        alert(sendMessageRef.current?.value)
+    }
 
     return (
         <div className={s.dialogs}>
@@ -18,7 +23,12 @@ export const Dialogs = ({dialogsData, messagesData,...props}:DialogsPagePropsTyp
                 {
                     messagesData.map(m => <Message message={m.message} id={m.id}/>)
                 }
+                <textarea ref={sendMessageRef}></textarea>
+                <div>
+                    <button onClick={sendMessage}>Send message</button>
+                </div>
             </div>
+
         </div>
     )
 }

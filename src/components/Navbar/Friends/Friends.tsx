@@ -8,9 +8,11 @@ export const Friends = ({friendsData, ...props}: FriendsDataPropsType) => {
     return (
         <div className={s.friends}>
             <h3>Friends</h3>
-            {
-                friendsData.map(f =><Friend name={f.name} logo={f.logo}/>)
-            }
+            <div>
+                {
+                    friendsData.map(f => <Friend name={f.name} logo={f.logo}/>)
+                }
+            </div>
         </div>
     )
 }

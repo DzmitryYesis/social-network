@@ -4,7 +4,7 @@ import s from './Navbar.module.css';
 import {Friends} from './Friends/Friends';
 import {FriendsDataPropsType} from '../../redux/state';
 
-export const Navbar = ({friendsData,...props}:FriendsDataPropsType) => {
+export const Navbar = ({friendsData, ...props}: FriendsDataPropsType) => {
     return (
         <div className={s.nav}>
             <div className={s.item}>
@@ -22,7 +22,9 @@ export const Navbar = ({friendsData,...props}:FriendsDataPropsType) => {
             <div className={s.item}>
                 <NavLink to={'/settings'} className={({isActive}) => isActive ? s.active : ''}>Settings</NavLink>
             </div>
-            <Friends friendsData={friendsData}/>
+            <div>
+                <Friends friendsData={friendsData}/>
+            </div>
         </div>
     )
 

@@ -6,14 +6,20 @@ import {ProfilePagePropsType} from '../../../redux/state';
 
 const MyPost = ({postData,...props}:ProfilePagePropsType) => {
 
+    let newPostRef=React.createRef<HTMLTextAreaElement>()
+
+    const addPost = () => {
+      alert(newPostRef.current?.value)
+    }
+
     return (
         <div className={s.postBlock}>
             <h3>My posts</h3>
             <div>
-                <input/>
+                <textarea ref={newPostRef}></textarea>
             </div>
             <div>
-                <button>Add post</button>
+                <button onClick={addPost}>Add post</button>
             </div>
             <div className={s.posts}>
                 {
