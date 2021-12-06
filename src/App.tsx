@@ -8,23 +8,32 @@ import {Dialogs} from './components/Dialogs/Dialogs';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
-import {StateType} from './redux/state';
+import {DialogsPagePropsType, FriendsDataPropsType, ProfilePagePropsType, StateType} from './redux/state';
 
-const App = ({profilePage,dialogsPage,sidebar,...props}:StateType) => {
+// type AppPropsType={
+//     profilePage:ProfilePagePropsType
+//     dialogsPage:DialogsPagePropsType
+//     sidebar:FriendsDataPropsType
+//     addNewPost:(text:string)=>void
+// }
+
+const App = ({profilePage, dialogsPage, sidebar, ...props}: StateType) => {
     return (
-            <div className={'app-wrapper'}>
-                <Header/>
-                <Navbar friendsData={sidebar.friendsData}/>
-                <div className={'app-wrapper-content'}>
-                    <Routes>
-                        <Route path={'/profile'} element={<Profile postData={profilePage.postData}/>}/>
-                        <Route path={'/dialogs/*'} element={<Dialogs dialogsData={dialogsPage.dialogsData} messagesData={dialogsPage.messagesData}/>}/>
-                        <Route path={'/news'} element={<News/>}/>
-                        <Route path={'/music'} element={<Music/>}/>
-                        <Route path={'/settings/*'} element={<Settings/>}/>
-                    </Routes>
-                </div>
+        <div className={'app-wrapper'}>
+            <Header/>
+            <Navbar friendsData={sidebar.friendsData}/>
+            <div className={'app-wrapper-content'}>
+                <Routes>
+                    <Route path={'/profile'}
+                           element={<Profile postData={profilePage.postData} addNewPost={profilePage.addNewPost}/>}/>
+                    <Route path={'/dialogs/*'} element={<Dialogs dialogsData={dialogsPage.dialogsData}
+                                                                 messagesData={dialogsPage.messagesData}/>}/>
+                    <Route path={'/news'} element={<News/>}/>
+                    <Route path={'/music'} element={<Music/>}/>
+                    <Route path={'/settings/*'} element={<Settings/>}/>
+                </Routes>
             </div>
+        </div>
     );
 }
 

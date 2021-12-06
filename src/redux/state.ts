@@ -1,13 +1,14 @@
-import {stringify} from 'querystring';
+
 
 export type PostDataPropsType = {
-    id?: number
+    id: number
     message: string
     numberLike: number
 }
 
 export type ProfilePagePropsType = {
     postData: Array<PostDataPropsType>
+    addNewPost: (text: string) => void
 }
 
 export type MessageDataPropsType = {
@@ -38,9 +39,10 @@ export type StateType = {
     profilePage: ProfilePagePropsType
     dialogsPage: DialogsPagePropsType
     sidebar: FriendsDataPropsType
+
 }
 
-export let state = {
+export let state:StateType = {
     profilePage: {
         postData: [
             {id: 1, message: 'Hi! How are you?', numberLike: 5},
@@ -48,7 +50,15 @@ export let state = {
             {id: 3, message: 'Welcome to hell', numberLike: 12},
             {id: 4, message: 'My beautiful daughter', numberLike: 457},
             {id: 5, message: 'My wife loves me', numberLike: 913}
-        ]
+        ],
+        addNewPost: (text: string) => {
+            const newPost: PostDataPropsType = {
+                id: new Date().getDate(),
+                message: text,
+                numberLike: 0
+            };
+            state.profilePage.postData.push(newPost)
+        }
     },
     dialogsPage: {
         dialogsData: [

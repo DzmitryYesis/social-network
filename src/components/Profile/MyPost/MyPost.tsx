@@ -4,12 +4,14 @@ import Post from './Post/Post';
 import {ProfilePagePropsType} from '../../../redux/state';
 
 
-const MyPost = ({postData,...props}:ProfilePagePropsType) => {
+const MyPost = ({postData, addNewPost, ...props}: ProfilePagePropsType) => {
 
-    let newPostRef=React.createRef<HTMLTextAreaElement>()
+    let newPostRef = React.createRef<HTMLTextAreaElement>()
 
     const addPost = () => {
-      alert(newPostRef.current?.value)
+        if (newPostRef.current) {
+            addNewPost(newPostRef.current?.value)
+        }
     }
 
     return (
@@ -23,7 +25,7 @@ const MyPost = ({postData,...props}:ProfilePagePropsType) => {
             </div>
             <div className={s.posts}>
                 {
-                    postData.map(v => <Post message={v.message} numberLike={v.numberLike}/>)
+                    postData.map(v => <Post message={v.message} numberLike={v.numberLike} id={v.id}/>)
                 }
             </div>
         </div>
