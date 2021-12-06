@@ -3,12 +3,12 @@ import {NavLink} from 'react-router-dom';
 import React from 'react';
 
 
-type DialogItemPropsType = {
-    name: string
+export type DialogsDataPropsType = {
     id: number
+    name: string
 }
 
-export const DialogItem = ({name, id, ...props}: DialogItemPropsType) => {
+export const DialogItem = ({name, id, ...props}: DialogsDataPropsType) => {
     let path = '/dialogs/' + id
     return (
         <div className={s.dialog + ' ' + s.active}>

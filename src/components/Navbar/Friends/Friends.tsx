@@ -1,7 +1,7 @@
 import s from './Friends.module.css';
 import React from 'react';
-import {FriendsDataPropsType} from '../../../redux/state';
 import {Friend} from './Friend/Friend';
+import {FriendsDataPropsType} from '../Navbar';
 
 
 export const Friends = ({friendsData, ...props}: FriendsDataPropsType) => {

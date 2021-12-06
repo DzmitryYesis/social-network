@@ -2,22 +2,20 @@ import React from 'react';
 import './App.css';
 import {Route, Routes} from 'react-router-dom';
 import {Header} from './components/Header/Header';
-import {Navbar} from './components/Navbar/Navbar';
-import {Profile} from './components/Profile/Profile';
-import {Dialogs} from './components/Dialogs/Dialogs';
+import {FriendsDataPropsType, Navbar} from './components/Navbar/Navbar';
+import {Profile, ProfilePagePropsType} from './components/Profile/Profile';
+import {Dialogs, DialogsPagePropsType} from './components/Dialogs/Dialogs';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
-import {DialogsPagePropsType, FriendsDataPropsType, ProfilePagePropsType, StateType} from './redux/state';
 
-// type AppPropsType={
-//     profilePage:ProfilePagePropsType
-//     dialogsPage:DialogsPagePropsType
-//     sidebar:FriendsDataPropsType
-//     addNewPost:(text:string)=>void
-// }
+export type AppPropsType={
+    profilePage:ProfilePagePropsType
+    dialogsPage:DialogsPagePropsType
+    sidebar:FriendsDataPropsType
+}
 
-const App = ({profilePage, dialogsPage, sidebar, ...props}: StateType) => {
+const App = ({profilePage, dialogsPage, sidebar, ...props}: AppPropsType) => {
     return (
         <div className={'app-wrapper'}>
             <Header/>

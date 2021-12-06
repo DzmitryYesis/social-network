@@ -1,8 +1,12 @@
 import React from 'react';
 import s from './Dialogs.module.css'
-import {DialogItem} from './DialogItem/DialogItem';
-import {Message} from './Message/Message';
-import {DialogsPagePropsType} from '../../redux/state';
+import {DialogItem, DialogsDataPropsType} from './DialogItem/DialogItem';
+import {Message, MessageDataPropsType} from './Message/Message';
+
+export type DialogsPagePropsType = {
+    dialogsData: Array<DialogsDataPropsType>
+    messagesData: Array<MessageDataPropsType>
+}
 
 export const Dialogs = ({dialogsData, messagesData, ...props}: DialogsPagePropsType) => {
 
@@ -16,7 +20,7 @@ export const Dialogs = ({dialogsData, messagesData, ...props}: DialogsPagePropsT
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
                 {
-                    dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>)
+                    dialogsData.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>)
                 }
             </div>
             <div className={s.messages}>

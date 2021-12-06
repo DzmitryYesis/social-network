@@ -1,10 +1,13 @@
 import s from './MyPost.module.css';
 import React from 'react';
-import Post from './Post/Post';
-import {ProfilePagePropsType} from '../../../redux/state';
+import Post, {PostDataPropsType} from './Post/Post';
 
+type MyPostPropsType={
+    postData:Array<PostDataPropsType>
+    addNewPost:(text:string)=>void
+}
 
-const MyPost = ({postData, addNewPost, ...props}: ProfilePagePropsType) => {
+const MyPost = ({postData, addNewPost, ...props}: MyPostPropsType) => {
 
     let newPostRef = React.createRef<HTMLTextAreaElement>()
 
@@ -25,7 +28,7 @@ const MyPost = ({postData, addNewPost, ...props}: ProfilePagePropsType) => {
             </div>
             <div className={s.posts}>
                 {
-                    postData.map(v => <Post message={v.message} numberLike={v.numberLike} id={v.id}/>)
+                    postData.map(v => <Post key={v.id} message={v.message} numberLike={v.numberLike} id={v.id}/>)
                 }
             </div>
         </div>

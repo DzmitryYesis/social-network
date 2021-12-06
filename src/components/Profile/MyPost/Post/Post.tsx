@@ -1,6 +1,11 @@
 import s from './Post.module.css';
 import React from 'react';
-import {PostDataPropsType} from '../../../../redux/state';
+
+export type PostDataPropsType = {
+    id: number
+    message: string
+    numberLike: number
+}
 
 const Post = ({message, numberLike, ...props}:PostDataPropsType) => {
     return (

@@ -1,48 +1,7 @@
+import {renderTree} from '../render';
 
 
-export type PostDataPropsType = {
-    id: number
-    message: string
-    numberLike: number
-}
-
-export type ProfilePagePropsType = {
-    postData: Array<PostDataPropsType>
-    addNewPost: (text: string) => void
-}
-
-export type MessageDataPropsType = {
-    id: number
-    message: string
-}
-
-export type DialogsDataPropsType = {
-    id: number
-    name: string
-}
-
-export type DialogsPagePropsType = {
-    dialogsData: Array<DialogsDataPropsType>
-    messagesData: Array<MessageDataPropsType>
-}
-
-export type FriendsPropsType = {
-    name: string
-    logo: string
-}
-
-export type FriendsDataPropsType = {
-    friendsData: Array<FriendsPropsType>
-}
-
-export type StateType = {
-    profilePage: ProfilePagePropsType
-    dialogsPage: DialogsPagePropsType
-    sidebar: FriendsDataPropsType
-
-}
-
-export let state:StateType = {
+export let state = {
     profilePage: {
         postData: [
             {id: 1, message: 'Hi! How are you?', numberLike: 5},
@@ -51,13 +10,14 @@ export let state:StateType = {
             {id: 4, message: 'My beautiful daughter', numberLike: 457},
             {id: 5, message: 'My wife loves me', numberLike: 913}
         ],
-        addNewPost: (text: string) => {
-            const newPost: PostDataPropsType = {
+        addNewPost : (text: string) => {
+            let newPost: NewPostType = {
                 id: new Date().getDate(),
                 message: text,
                 numberLike: 0
             };
-            state.profilePage.postData.push(newPost)
+            state.profilePage.postData.push(newPost);
+            renderTree(state)
         }
     },
     dialogsPage: {
@@ -93,6 +53,12 @@ export let state:StateType = {
 
         ]
     }
+}
+
+type NewPostType = {
+    id: number
+    message: string
+    numberLike: number
 }
 
 
