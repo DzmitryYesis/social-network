@@ -1,7 +1,8 @@
 import {renderTree} from '../render';
+import {AppPropsType} from '../App';
 
 
-export let state = {
+export let state:AppPropsType = {
     profilePage: {
         postData: [
             {id: 1, message: 'Hi! How are you?', numberLike: 5},
@@ -10,7 +11,7 @@ export let state = {
             {id: 4, message: 'My beautiful daughter', numberLike: 457},
             {id: 5, message: 'My wife loves me', numberLike: 913}
         ],
-        addNewPost : (text: string) => {
+        addNewPost: (text: string) => {
             let newPost: NewPostType = {
                 id: new Date().getDate(),
                 message: text,
@@ -37,7 +38,15 @@ export let state = {
             {id: 4, message: 'Great!'},
             {id: 5, message: 'My name Jora Smolenski'},
             {id: 6, message: 'It\'s joke'}
-        ]
+        ],
+        addNewMessage: (text: string) => {
+            let newMessage: NewMessageType = {
+                id: new Date().getDate(),
+                message: text
+            }
+            state.dialogsPage.messagesData.push(newMessage)
+            renderTree(state)
+        }
     },
     sidebar: {
         friendsData: [
@@ -61,7 +70,10 @@ type NewPostType = {
     numberLike: number
 }
 
-
+type NewMessageType = {
+    id: number
+    message: string
+}
 
 
 

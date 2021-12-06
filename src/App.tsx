@@ -25,7 +25,7 @@ const App = ({profilePage, dialogsPage, sidebar, ...props}: AppPropsType) => {
                     <Route path={'/profile'}
                            element={<Profile postData={profilePage.postData} addNewPost={profilePage.addNewPost}/>}/>
                     <Route path={'/dialogs/*'} element={<Dialogs dialogsData={dialogsPage.dialogsData}
-                                                                 messagesData={dialogsPage.messagesData}/>}/>
+                                                                 messagesData={dialogsPage.messagesData} addNewMessage={dialogsPage.addNewMessage}/>}/>
                     <Route path={'/news'} element={<News/>}/>
                     <Route path={'/music'} element={<Music/>}/>
                     <Route path={'/settings/*'} element={<Settings/>}/>

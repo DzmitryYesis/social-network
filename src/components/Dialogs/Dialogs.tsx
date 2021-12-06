@@ -6,14 +6,16 @@ import {Message, MessageDataPropsType} from './Message/Message';
 export type DialogsPagePropsType = {
     dialogsData: Array<DialogsDataPropsType>
     messagesData: Array<MessageDataPropsType>
+    addNewMessage:(text:string)=>void
 }
 
-export const Dialogs = ({dialogsData, messagesData, ...props}: DialogsPagePropsType) => {
+export const Dialogs = ({dialogsData, messagesData,addNewMessage, ...props}: DialogsPagePropsType) => {
 
     let sendMessageRef = React.createRef<HTMLTextAreaElement>()
 
     const sendMessage = () => {
-        alert(sendMessageRef.current?.value)
+        if(sendMessageRef.current)
+        addNewMessage(sendMessageRef.current?.value)
     }
 
     return (
