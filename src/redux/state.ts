@@ -1,5 +1,6 @@
 import {renderTree} from '../render';
 import {AppPropsType} from '../App';
+import {ChangeEvent} from 'react';
 
 
 export let state:AppPropsType = {
@@ -11,6 +12,11 @@ export let state:AppPropsType = {
             {id: 4, message: 'My beautiful daughter', numberLike: 457},
             {id: 5, message: 'My wife loves me', numberLike: 913}
         ],
+        newPost:'sd',
+        changePostState:(newPost:string)=>{
+            state.profilePage.newPost=newPost
+            renderTree(state)
+        },
         addNewPost: (text: string) => {
             let newPost: NewPostType = {
                 id: new Date().getDate(),
