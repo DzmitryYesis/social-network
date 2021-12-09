@@ -25,7 +25,7 @@ const changePostHandler = (e:ChangeEvent<HTMLTextAreaElement>) => {changePostSta
         <div className={s.postBlock}>
             <h3>My posts</h3>
             <div>
-                <textarea value={newPost} onChange={changePostHandler}></textarea>
+                <textarea  onChange={changePostHandler} value={newPost}></textarea>
             </div>
             <div>
                 <button onClick={addPost}>Add post</button>

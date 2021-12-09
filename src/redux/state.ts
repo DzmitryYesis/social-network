@@ -3,7 +3,7 @@ import {AppPropsType} from '../App';
 import {ChangeEvent} from 'react';
 
 
-export let state:AppPropsType = {
+export let state: AppPropsType = {
     profilePage: {
         postData: [
             {id: 1, message: 'Hi! How are you?', numberLike: 5},
@@ -12,9 +12,9 @@ export let state:AppPropsType = {
             {id: 4, message: 'My beautiful daughter', numberLike: 457},
             {id: 5, message: 'My wife loves me', numberLike: 913}
         ],
-        newPost:'sd',
-        changePostState:(newPost:string)=>{
-            state.profilePage.newPost=newPost
+        newPost: 'sd',
+        changePostState: (newPost: string) => {
+            state.profilePage.newPost = newPost
             renderTree(state)
         },
         addNewPost: (text: string) => {
@@ -45,6 +45,11 @@ export let state:AppPropsType = {
             {id: 5, message: 'My name Jora Smolenski'},
             {id: 6, message: 'It\'s joke'}
         ],
+        newMessage: 'Great Dima',
+        changeMessagePost: (newMessage: string) => {
+            state.dialogsPage.newMessage = newMessage
+            renderTree(state)
+        },
         addNewMessage: (text: string) => {
             let newMessage: NewMessageType = {
                 id: new Date().getDate(),
