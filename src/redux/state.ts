@@ -1,5 +1,12 @@
-import {renderTree} from '../render';
 import {AppPropsType} from '../App';
+
+let renderTree = (state:AppPropsType) => {
+    console.log('bla')
+}
+
+export const subscribe = (observe: ( state: AppPropsType) => void) => {
+    renderTree = observe
+}
 
 
 export let state: AppPropsType = {
@@ -23,7 +30,7 @@ export let state: AppPropsType = {
                 numberLike: 0
             };
             state.profilePage.postData.push(newPost);
-            state.profilePage.newPost=''
+            state.profilePage.newPost = ''
             renderTree(state)
         }
     },
@@ -56,7 +63,7 @@ export let state: AppPropsType = {
                 message: text
             }
             state.dialogsPage.messagesData.push(newMessage)
-            state.dialogsPage.newMessage=''
+            state.dialogsPage.newMessage = ''
             renderTree(state)
         }
     },
