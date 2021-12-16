@@ -1,17 +1,17 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import s from './Profile.module.css'
 import MyPost from './MyPost/MyPost';
 import {ProfileInfo} from './ProfileInfo/ProfileInfo';
-import {PostDataPropsType} from './MyPost/Post/Post';
+import {PostPropsType} from './MyPost/Post/Post';
 
-export type ProfilePagePropsType = {
-    postData: Array<PostDataPropsType>
-    addNewPost: (text: string) => void
-    newPost: string
-    changePostState: (text:string) => void
+export type ProfilePropsType = {
+    postData: Array<PostPropsType>
+    newPost:string
+    addNewPost:(text: string) => void
+    changePostState:(newPost: string) => void
 }
 
-export const Profile = ({postData, addNewPost, newPost, changePostState, ...props}: ProfilePagePropsType) => {
+export const Profile = ({postData, addNewPost, newPost, changePostState, ...props}: ProfilePropsType) => {
 
     return (
         <div>

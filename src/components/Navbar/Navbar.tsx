@@ -2,13 +2,13 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import s from './Navbar.module.css';
 import {Friends} from './Friends/Friends';
-import {FriendsPropsType} from './Friends/Friend/Friend';
+import {FriendPropsType} from './Friends/Friend/Friend';
 
-export type FriendsDataPropsType = {
-    friendsData: Array<FriendsPropsType>
+export type FriendsPropsType = {
+    friendsData: Array<FriendPropsType>
 }
 
-export const Navbar = ({friendsData, ...props}: FriendsDataPropsType) => {
+export const Navbar = ({friendsData, ...props}: FriendsPropsType) => {
     return (
         <div className={s.nav}>
             <div className={s.item}>

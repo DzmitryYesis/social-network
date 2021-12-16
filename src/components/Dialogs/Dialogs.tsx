@@ -1,14 +1,14 @@
 import React, {ChangeEvent} from 'react';
 import s from './Dialogs.module.css'
-import {DialogItem, DialogsDataPropsType} from './DialogItem/DialogItem';
-import {Message, MessageDataPropsType} from './Message/Message';
+import {DialogItem, DialogsPropsType} from './DialogItem/DialogItem';
+import {Message, MessagePropsType} from './Message/Message';
 
 export type DialogsPagePropsType = {
-    dialogsData: Array<DialogsDataPropsType>
-    messagesData: Array<MessageDataPropsType>
+    dialogsData: Array<DialogsPropsType>
+    messagesData: Array<MessagePropsType>
     newMessage:string
-    changeMessagePost:(newMessage:string)=>void
-    addNewMessage:(text:string)=>void
+    changeMessagePost:(newMessage: string) => void
+    addNewMessage:(text: string) => void
 }
 
 export const Dialogs = ({dialogsData, messagesData, newMessage, changeMessagePost ,addNewMessage, ...props}: DialogsPagePropsType) => {

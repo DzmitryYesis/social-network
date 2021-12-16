@@ -2,30 +2,44 @@ import React from 'react';
 import './App.css';
 import {Route, Routes} from 'react-router-dom';
 import {Header} from './components/Header/Header';
-import {FriendsDataPropsType, Navbar} from './components/Navbar/Navbar';
-import {Profile, ProfilePagePropsType} from './components/Profile/Profile';
-import {Dialogs, DialogsPagePropsType} from './components/Dialogs/Dialogs';
+import {Navbar} from './components/Navbar/Navbar';
+import {Profile} from './components/Profile/Profile';
+import {Dialogs} from './components/Dialogs/Dialogs';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
+import {StoreType} from './redux/state';
 
-export type AppPropsType={
-    profilePage:ProfilePagePropsType
-    dialogsPage:DialogsPagePropsType
-    sidebar:FriendsDataPropsType
+type PropsType = {
+    store: StoreType
 }
 
-const App = ({profilePage, dialogsPage, sidebar, ...props}: AppPropsType) => {
+
+const App = ({store, ...props}: PropsType) => {
+    const state = store.getState()
     return (
         <div className={'app-wrapper'}>
             <Header/>
-            <Navbar friendsData={sidebar.friendsData}/>
+            <Navbar friendsData={state.sidebar.friendsData}/>
             <div className={'app-wrapper-content'}>
                 <Routes>
                     <Route path={'/profile'}
-                           element={<Profile postData={profilePage.postData} addNewPost={profilePage.addNewPost} newPost={profilePage.newPost} changePostState={profilePage.changePostState}/>}/>
-                    <Route path={'/dialogs/*'} element={<Dialogs dialogsData={dialogsPage.dialogsData}
-                                                                 messagesData={dialogsPage.messagesData} newMessage={dialogsPage.newMessage} changeMessagePost={dialogsPage.changeMessagePost} addNewMessage={dialogsPage.addNewMessage}/>}/>
+                           element={<Profile
+                               postData={state.profilePage.postData}
+                               addNewPost={store.addNewPost.bind(store)}
+                               newPost={state.profilePage.newPost}
+                               changePostState={store.changePostState.bind(store)}
+                           />}
+                    />
+                    <Route path={'/dialogs/*'}
+                           element={<Dialogs
+                               dialogsData={state.dialogsPage.dialogsData}
+                               messagesData={state.dialogsPage.messagesData}
+                               newMessage={state.dialogsPage.newMessage}
+                               changeMessagePost={store.changeMessagePost.bind(store)}
+                               addNewMessage={store.addNewMessage.bind(store)}
+                           />}
+                    />
                     <Route path={'/news'} element={<News/>}/>
                     <Route path={'/music'} element={<Music/>}/>
                     <Route path={'/settings/*'} element={<Settings/>}/>

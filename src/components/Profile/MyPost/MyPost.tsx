@@ -1,9 +1,9 @@
 import s from './MyPost.module.css';
 import React, {ChangeEvent} from 'react';
-import Post, {PostDataPropsType} from './Post/Post';
+import Post, {PostPropsType} from './Post/Post';
 
 type MyPostPropsType={
-    postData:Array<PostDataPropsType>
+    postData:Array<PostPropsType>
     addNewPost:(newPost:string)=>void
     newPost:string
     changePostState: (text:string) => void
