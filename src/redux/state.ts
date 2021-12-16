@@ -1,6 +1,5 @@
 import {renderTree} from '../render';
 import {AppPropsType} from '../App';
-import {ChangeEvent} from 'react';
 
 
 export let state: AppPropsType = {
@@ -12,7 +11,7 @@ export let state: AppPropsType = {
             {id: 4, message: 'My beautiful daughter', numberLike: 457},
             {id: 5, message: 'My wife loves me', numberLike: 913}
         ],
-        newPost: 'sd',
+        newPost: '',
         changePostState: (newPost: string) => {
             state.profilePage.newPost = newPost
             renderTree(state)
@@ -24,6 +23,7 @@ export let state: AppPropsType = {
                 numberLike: 0
             };
             state.profilePage.postData.push(newPost);
+            state.profilePage.newPost=''
             renderTree(state)
         }
     },
@@ -45,7 +45,7 @@ export let state: AppPropsType = {
             {id: 5, message: 'My name Jora Smolenski'},
             {id: 6, message: 'It\'s joke'}
         ],
-        newMessage: 'Great Dima',
+        newMessage: '',
         changeMessagePost: (newMessage: string) => {
             state.dialogsPage.newMessage = newMessage
             renderTree(state)
@@ -56,6 +56,7 @@ export let state: AppPropsType = {
                 message: text
             }
             state.dialogsPage.messagesData.push(newMessage)
+            state.dialogsPage.newMessage=''
             renderTree(state)
         }
     },
