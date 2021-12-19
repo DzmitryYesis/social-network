@@ -1,38 +1,34 @@
 import s from './MyPost.module.css';
 import React, {ChangeEvent} from 'react';
-import Post, {PostPropsType} from './Post/Post';
+import Post from './Post/Post';
+import {ActionType} from '../../../redux/state';
+import {PostDataPropsType} from '../Profile';
 
 type MyPostPropsType={
-    postData:Array<PostPropsType>
-    addNewPost:(newPost:string)=>void
-    newPost:string
-    changePostState: (text:string) => void
+    data:PostDataPropsType
+    dispatch:(action: ActionType) => void
 }
 
-const MyPost = ({postData, addNewPost,newPost,changePostState, ...props}: MyPostPropsType) => {
+const MyPost = ({data, dispatch, ...props}: MyPostPropsType) => {
 
 
     const addPost = () => {
-            addNewPost(newPost)
+        dispatch({type: 'ADD-NEW-POST', text: data.newPost})
         }
-const changePostHandler = (e:ChangeEvent<HTMLTextAreaElement>) => {changePostState(e.currentTarget.value)}
-
-
-
-
+const changePostHandler = (e:ChangeEvent<HTMLTextAreaElement>) => {dispatch({type: 'CHANGE-POST-STATE', newPost: e.currentTarget.value})}
 
     return (
         <div className={s.postBlock}>
             <h3>My posts</h3>
             <div>
-                <textarea  onChange={changePostHandler} value={newPost}></textarea>
+                <textarea  onChange={changePostHandler} value={data.newPost}></textarea>
             </div>
             <div>
                 <button onClick={addPost}>Add post</button>
             </div>
             <div className={s.posts}>
                 {
-                    postData.map(v => <Post key={v.id} message={v.message} numberLike={v.numberLike} id={v.id}/>)
+                    data.postData.map(v => <Post key={v.id} message={v.message} numberLike={v.numberLike} id={v.id}/>)
                 }
             </div>
         </div>

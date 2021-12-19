@@ -3,20 +3,24 @@ import s from './Profile.module.css'
 import MyPost from './MyPost/MyPost';
 import {ProfileInfo} from './ProfileInfo/ProfileInfo';
 import {PostPropsType} from './MyPost/Post/Post';
+import {ActionType} from '../../redux/state';
 
-export type ProfilePropsType = {
+ export type PostDataPropsType={
     postData: Array<PostPropsType>
-    newPost:string
-    addNewPost:(text: string) => void
-    changePostState:(newPost: string) => void
+    newPost: string
 }
 
-export const Profile = ({postData, addNewPost, newPost, changePostState, ...props}: ProfilePropsType) => {
+export type ProfilePropsType = {
+    data: PostDataPropsType
+    dispatch:(action: ActionType) => void
+}
+
+export const Profile = ({data, dispatch, ...props}: ProfilePropsType) => {
 
     return (
         <div>
             <ProfileInfo/>
-            <MyPost postData={postData} addNewPost={addNewPost} newPost={newPost} changePostState={changePostState}/>
+            <MyPost data={data} dispatch={dispatch} />
         </div>
     )
 

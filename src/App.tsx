@@ -25,19 +25,15 @@ const App = ({store, ...props}: PropsType) => {
                 <Routes>
                     <Route path={'/profile'}
                            element={<Profile
-                               postData={state.profilePage.postData}
-                               addNewPost={store.addNewPost.bind(store)}
-                               newPost={state.profilePage.newPost}
-                               changePostState={store.changePostState.bind(store)}
+                               data={state.profilePage}
+                               dispatch={store.dispatch.bind(store)}
+                               // newPost={state.profilePage.newPost}
                            />}
                     />
                     <Route path={'/dialogs/*'}
                            element={<Dialogs
-                               dialogsData={state.dialogsPage.dialogsData}
-                               messagesData={state.dialogsPage.messagesData}
-                               newMessage={state.dialogsPage.newMessage}
-                               changeMessagePost={store.changeMessagePost.bind(store)}
-                               addNewMessage={store.addNewMessage.bind(store)}
+                               data={state.dialogsPage}
+                               dispatch={store.dispatch.bind(store)}
                            />}
                     />
                     <Route path={'/news'} element={<News/>}/>

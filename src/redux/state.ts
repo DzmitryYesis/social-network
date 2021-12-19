@@ -1,13 +1,13 @@
 export type StoreType = {
     _state: StatePropsType
-    changePostState: (newPost: string) => void
-    addNewPost: (text: string) => void
-    changeMessagePost: (newMessage: string) => void
-    addNewMessage: (text: string) => void
     _renderTree: () => void
     subscribe: (observe: () => void) => void
     getState: () => StatePropsType
+    dispatch: (action: ActionType ) => void
 }
+
+export type ActionType=AddNewPostActionType | ChangeNewPostStateType | AddNewMessageType | ChangeMessagePostType
+
 
 export const store: StoreType = {
     _state: {
@@ -56,33 +56,6 @@ export const store: StoreType = {
             ]
         }
     },
-    changePostState(newPost: string) {
-        this._state.profilePage.newPost = newPost
-        this._renderTree()
-    },
-    addNewPost(text: string) {
-        let newPost: NewPostType = {
-            id: new Date().getDate(),
-            message: text,
-            numberLike: 0
-        }
-        this._state.profilePage.postData.push(newPost)
-        this._state.profilePage.newPost = ''
-        this._renderTree()
-    },
-    changeMessagePost(newMessage: string) {
-        this._state.dialogsPage.newMessage = newMessage
-        this._renderTree()
-    },
-    addNewMessage(text: string) {
-        let newMessage: NewMessageType = {
-            id: new Date().getDate(),
-            message: text
-        }
-        this._state.dialogsPage.messagesData.push(newMessage)
-        this._state.dialogsPage.newMessage = ''
-        this._renderTree()
-    },
     _renderTree() {
         console.log('State changed')
     },
@@ -91,7 +64,54 @@ export const store: StoreType = {
     },
     getState() {
         return this._state
+    },
+    dispatch(action) {
+        if (action.type === 'ADD-NEW-POST') {
+            let newPost: NewPostType = {
+                id: new Date().getDate(),
+                message: action.text,
+                numberLike: 0
+            }
+            this._state.profilePage.postData.push(newPost)
+            this._state.profilePage.newPost = ''
+            this._renderTree()
+        } else if (action.type === 'CHANGE-POST-STATE') {
+            this._state.profilePage.newPost = action.newPost
+            this._renderTree()
+        } else if (action.type === 'ADD-NEW-MESSAGE') {
+            let newMessage: NewMessageType = {
+                id: new Date().getDate(),
+                message: action.text
+            }
+            this._state.dialogsPage.messagesData.push(newMessage)
+            this._state.dialogsPage.newMessage = ''
+            this._renderTree()
+        } else if (action.type === 'CHANGE-MESSAGE-POST') {
+            this._state.dialogsPage.newMessage = action.newMessage
+            this._renderTree()
+        }
     }
+
+}
+
+type AddNewPostActionType = {
+    type: 'ADD-NEW-POST'
+    text: string
+}
+
+type ChangeNewPostStateType = {
+    type: 'CHANGE-POST-STATE'
+    newPost: string
+}
+
+type AddNewMessageType = {
+    type: 'ADD-NEW-MESSAGE'
+    text: string
+}
+
+type ChangeMessagePostType = {
+    type: 'CHANGE-MESSAGE-POST'
+    newMessage: string
 }
 
 type StatePropsType = {
