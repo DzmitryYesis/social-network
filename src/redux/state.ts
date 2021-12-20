@@ -3,10 +3,14 @@ export type StoreType = {
     _renderTree: () => void
     subscribe: (observe: () => void) => void
     getState: () => StatePropsType
-    dispatch: (action: ActionType ) => void
+    dispatch: (action: ActionType) => void
 }
 
-export type ActionType=AddNewPostActionType | ChangeNewPostStateType | AddNewMessageType | ChangeMessagePostType
+export type ActionType =
+    ReturnType<typeof addPostAC>
+    | ReturnType<typeof changeNewPostStateAC>
+    | ReturnType<typeof addNewMessageAC>
+    | ReturnType<typeof changeMessagePostStateAC>
 
 
 export const store: StoreType = {
@@ -94,25 +98,17 @@ export const store: StoreType = {
 
 }
 
-type AddNewPostActionType = {
-    type: 'ADD-NEW-POST'
-    text: string
-}
+export const addPostAC = (newPost: string) =>
+    ({type: 'ADD-NEW-POST', text: newPost} as const)
 
-type ChangeNewPostStateType = {
-    type: 'CHANGE-POST-STATE'
-    newPost: string
-}
+export const changeNewPostStateAC = (newPost: string) =>
+    ({type: 'CHANGE-POST-STATE', newPost: newPost} as const)
 
-type AddNewMessageType = {
-    type: 'ADD-NEW-MESSAGE'
-    text: string
-}
+export const addNewMessageAC = (newMessage: string) =>
+    ({type: 'ADD-NEW-MESSAGE', text: newMessage} as const)
 
-type ChangeMessagePostType = {
-    type: 'CHANGE-MESSAGE-POST'
-    newMessage: string
-}
+export const changeMessagePostStateAC = (newMessage: string) =>
+    ({type: 'CHANGE-MESSAGE-POST', newMessage: newMessage} as const)
 
 type StatePropsType = {
     profilePage: ProfilePagePropsType
