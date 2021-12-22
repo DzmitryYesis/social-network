@@ -1,3 +1,7 @@
+import {profileReducer} from './profileReducer';
+import {dialogsReducer} from './dialogsReducer';
+import {sidebarReducer} from './sidebarReducer';
+
 export type StoreType = {
     _state: StatePropsType
     _renderTree: () => void
@@ -70,32 +74,12 @@ export const store: StoreType = {
         return this._state
     },
     dispatch(action) {
-        if (action.type === 'ADD-NEW-POST') {
-            let newPost: NewPostType = {
-                id: new Date().getDate(),
-                message: action.text,
-                numberLike: 0
-            }
-            this._state.profilePage.postData.push(newPost)
-            this._state.profilePage.newPost = ''
-            this._renderTree()
-        } else if (action.type === 'CHANGE-POST-STATE') {
-            this._state.profilePage.newPost = action.newPost
-            this._renderTree()
-        } else if (action.type === 'ADD-NEW-MESSAGE') {
-            let newMessage: NewMessageType = {
-                id: new Date().getDate(),
-                message: action.text
-            }
-            this._state.dialogsPage.messagesData.push(newMessage)
-            this._state.dialogsPage.newMessage = ''
-            this._renderTree()
-        } else if (action.type === 'CHANGE-MESSAGE-POST') {
-            this._state.dialogsPage.newMessage = action.newMessage
-            this._renderTree()
-        }
-    }
 
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+        this._renderTree()
+    }
 }
 
 export const addPostAC = (newPost: string) =>
@@ -116,7 +100,7 @@ type StatePropsType = {
     sidebar: FriendsDataPropsType
 }
 
-type ProfilePagePropsType = {
+export type ProfilePagePropsType = {
     postData: Array<PostDataPropsType>
     newPost: string
 }
@@ -127,7 +111,7 @@ type PostDataPropsType = {
     numberLike: number
 }
 
-type DialogsPagePropsType = {
+export type DialogsPagePropsType = {
     dialogsData: Array<DialogsDataPropsType>
     messagesData: Array<MessageDataPropsType>
     newMessage: string
@@ -143,7 +127,7 @@ type MessageDataPropsType = {
     message: string
 }
 
-type FriendsDataPropsType = {
+export type FriendsDataPropsType = {
     friendsData: Array<FriendsPropsType>
 }
 
@@ -152,13 +136,13 @@ type FriendsPropsType = {
     logo: string
 }
 
-type NewPostType = {
+export type NewPostType = {
     id: number
     message: string
     numberLike: number
 }
 
-type NewMessageType = {
+export type NewMessageType = {
     id: number
     message: string
 }

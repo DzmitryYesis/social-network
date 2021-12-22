@@ -16,3 +16,5 @@ export const DialogItem = ({name, id, ...props}: DialogsPropsType) => {
         </div>
     )
 }
+
+
