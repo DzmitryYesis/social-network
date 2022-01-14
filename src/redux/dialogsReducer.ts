@@ -1,4 +1,4 @@
-import {ActionType, DialogsPagePropsType, NewMessageType} from './state';
+import {ActionType, DialogsPagePropsType, NewMessageType} from './store';
 
 
 export const dialogsReducer = (state: DialogsPagePropsType, action: ActionType):DialogsPagePropsType => {

@@ -1,4 +1,4 @@
-import {ActionType, FriendsDataPropsType} from './state';
+import {ActionType, FriendsDataPropsType} from './store';
 
 
 export const sidebarReducer = (state: FriendsDataPropsType, action: ActionType) => {
