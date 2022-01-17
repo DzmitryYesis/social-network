@@ -8,32 +8,38 @@ import {Dialogs} from './components/Dialogs/Dialogs';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
-import {StoreType} from './redux/store';
+import {
+    DialogsPagePropsType,
+    FriendsDataPropsType,
+    ProfilePagePropsType
+} from './redux/store';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppRootStateType, store} from './redux/store-redux';
 
-type PropsType = {
-    store: StoreType
-}
 
+const App = () => {
 
-const App = ({store, ...props}: PropsType) => {
-    const state = store.getState()
+    const sidebar = useSelector<AppRootStateType, FriendsDataPropsType>((store) => store.sidebar)
+    const profilePage = useSelector<AppRootStateType, ProfilePagePropsType>((store) => store.profilePage)
+    const dialogPage = useSelector<AppRootStateType, DialogsPagePropsType>((store) => store.dialogsPage)
+    const dispatch = useDispatch()
+
     return (
         <div className={'app-wrapper'}>
             <Header/>
-            <Navbar friendsData={state.sidebar.friendsData}/>
+            <Navbar friendsData={sidebar.friendsData}/>
             <div className={'app-wrapper-content'}>
                 <Routes>
                     <Route path={'/profile'}
                            element={<Profile
-                               data={state.profilePage}
-                               dispatch={store.dispatch.bind(store)}
-                               // newPost={state.profilePage.newPost}
+                               data={profilePage}
+                               dispatch={dispatch.bind(store)}
                            />}
                     />
                     <Route path={'/dialogs/*'}
                            element={<Dialogs
-                               data={state.dialogsPage}
-                               dispatch={store.dispatch.bind(store)}
+                               data={dialogPage}
+                               dispatch={dispatch.bind(store)}
                            />}
                     />
                     <Route path={'/news'} element={<News/>}/>
@@ -43,7 +49,7 @@ const App = ({store, ...props}: PropsType) => {
             </div>
         </div>
     );
-}
+};
 
 
 export default App;

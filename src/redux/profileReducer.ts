@@ -1,7 +1,17 @@
 import {ActionType, NewPostType, ProfilePagePropsType} from './store';
 
+let initialState = {
+    postData: [
+        {id: 1, message: 'Hi! How are you?', numberLike: 5},
+        {id: 2, message: 'It\'s my first post', numberLike: 45},
+        {id: 3, message: 'Welcome to hell', numberLike: 12},
+        {id: 4, message: 'My beautiful daughter', numberLike: 457},
+        {id: 5, message: 'My wife loves me', numberLike: 913}
+    ],
+    newPost: '',
+}
 
-export const profileReducer = (state: ProfilePagePropsType, action: ActionType) => {
+export const profileReducer = (state: ProfilePagePropsType = initialState, action: ActionType): ProfilePagePropsType => {
     switch (action.type) {
         case 'ADD-NEW-POST':
             let newPost: NewPostType = {
@@ -9,12 +19,9 @@ export const profileReducer = (state: ProfilePagePropsType, action: ActionType) 
                 message: action.text,
                 numberLike: 0
             }
-            state.postData.push(newPost)
-            state.newPost = ''
-            return state
+            return {...state, postData: [...state.postData, newPost], newPost: ''}
         case 'CHANGE-POST-STATE':
-            state.newPost = action.newPost
-            return state
+            return {...state, newPost: action.newPost}
         default:
             return state
     }

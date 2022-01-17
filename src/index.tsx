@@ -4,13 +4,16 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-import {store} from './redux/store';
+import {store} from './redux/store-redux';
+import {Provider} from 'react-redux';
 
 let renderTree = () => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App store={store}/>
+                <Provider store={store}>
+                <App />
+                </Provider>
             </BrowserRouter>
         </React.StrictMode>
         , document.getElementById('root')

@@ -94,7 +94,7 @@ export const addNewMessageAC = (newMessage: string) =>
 export const changeMessagePostStateAC = (newMessage: string) =>
     ({type: 'CHANGE-MESSAGE-POST', newMessage: newMessage} as const)
 
-type StatePropsType = {
+ export type StatePropsType = {
     profilePage: ProfilePagePropsType
     dialogsPage: DialogsPagePropsType
     sidebar: FriendsDataPropsType
@@ -131,7 +131,7 @@ export type FriendsDataPropsType = {
     friendsData: Array<FriendsPropsType>
 }
 
-type FriendsPropsType = {
+export type FriendsPropsType = {
     name: string
     logo: string
 }
