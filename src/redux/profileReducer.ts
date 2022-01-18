@@ -1,4 +1,4 @@
-import {ActionType, NewPostType, ProfilePagePropsType} from './store';
+import {ActionType} from './Action';
 
 let initialState = {
     postData: [
@@ -9,6 +9,21 @@ let initialState = {
         {id: 5, message: 'My wife loves me', numberLike: 913}
     ],
     newPost: '',
+}
+
+export type ProfilePagePropsType = {
+    postData: Array<PostDataPropsType>
+    newPost: string
+}
+type PostDataPropsType = {
+    id: number
+    message: string
+    numberLike: number
+}
+type NewPostType = {
+    id: number
+    message: string
+    numberLike: number
 }
 
 export const profileReducer = (state: ProfilePagePropsType = initialState, action: ActionType): ProfilePagePropsType => {

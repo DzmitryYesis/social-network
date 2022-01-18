@@ -8,13 +8,11 @@ import {Dialogs} from './components/Dialogs/Dialogs';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
-import {
-    DialogsPagePropsType,
-    FriendsDataPropsType,
-    ProfilePagePropsType
-} from './redux/store';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType, store} from './redux/store-redux';
+import {FriendsDataPropsType} from './redux/sidebarReducer';
+import {ProfilePagePropsType} from './redux/profileReducer';
+import {DialogsPagePropsType} from './redux/dialogsReducer';
 
 
 const App = () => {

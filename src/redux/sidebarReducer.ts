@@ -1,4 +1,12 @@
-import {ActionType, FriendsDataPropsType} from './store';
+import {ActionType} from './Action';
+
+export type FriendsDataPropsType = {
+    friendsData: Array<FriendsPropsType>
+}
+type FriendsPropsType = {
+    name: string
+    logo: string
+}
 
 let initialState = {
     friendsData: [

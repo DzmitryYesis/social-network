@@ -2,7 +2,7 @@ import {profileReducer} from './profileReducer';
 import {dialogsReducer} from './dialogsReducer';
 import {sidebarReducer} from './sidebarReducer';
 
-export type StoreType = {
+type StoreType = {
     _state: StatePropsType
     _renderTree: () => void
     subscribe: (observe: () => void) => void
@@ -10,14 +10,14 @@ export type StoreType = {
     dispatch: (action: ActionType) => void
 }
 
-export type ActionType =
+type ActionType =
     ReturnType<typeof addPostAC>
     | ReturnType<typeof changeNewPostStateAC>
     | ReturnType<typeof addNewMessageAC>
     | ReturnType<typeof changeMessagePostStateAC>
 
 
-export const store: StoreType = {
+const store: StoreType = {
     _state: {
         profilePage: {
             postData: [
@@ -82,25 +82,25 @@ export const store: StoreType = {
     }
 }
 
-export const addPostAC = (newPost: string) =>
+const addPostAC = (newPost: string) =>
     ({type: 'ADD-NEW-POST', text: newPost} as const)
 
-export const changeNewPostStateAC = (newPost: string) =>
+const changeNewPostStateAC = (newPost: string) =>
     ({type: 'CHANGE-POST-STATE', newPost: newPost} as const)
 
-export const addNewMessageAC = (newMessage: string) =>
+const addNewMessageAC = (newMessage: string) =>
     ({type: 'ADD-NEW-MESSAGE', text: newMessage} as const)
 
-export const changeMessagePostStateAC = (newMessage: string) =>
+const changeMessagePostStateAC = (newMessage: string) =>
     ({type: 'CHANGE-MESSAGE-POST', newMessage: newMessage} as const)
 
- export type StatePropsType = {
+type StatePropsType = {
     profilePage: ProfilePagePropsType
     dialogsPage: DialogsPagePropsType
     sidebar: FriendsDataPropsType
 }
 
-export type ProfilePagePropsType = {
+type ProfilePagePropsType = {
     postData: Array<PostDataPropsType>
     newPost: string
 }
@@ -111,7 +111,7 @@ type PostDataPropsType = {
     numberLike: number
 }
 
-export type DialogsPagePropsType = {
+type DialogsPagePropsType = {
     dialogsData: Array<DialogsDataPropsType>
     messagesData: Array<MessageDataPropsType>
     newMessage: string
@@ -127,22 +127,22 @@ type MessageDataPropsType = {
     message: string
 }
 
-export type FriendsDataPropsType = {
+type FriendsDataPropsType = {
     friendsData: Array<FriendsPropsType>
 }
 
-export type FriendsPropsType = {
+type FriendsPropsType = {
     name: string
     logo: string
 }
 
-export type NewPostType = {
+type NewPostType = {
     id: number
     message: string
     numberLike: number
 }
 
-export type NewMessageType = {
+type NewMessageType = {
     id: number
     message: string
 }
