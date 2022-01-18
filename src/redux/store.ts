@@ -99,49 +99,40 @@ type StatePropsType = {
     dialogsPage: DialogsPagePropsType
     sidebar: FriendsDataPropsType
 }
-
 type ProfilePagePropsType = {
     postData: Array<PostDataPropsType>
     newPost: string
 }
-
 type PostDataPropsType = {
     id: number
     message: string
     numberLike: number
 }
-
 type DialogsPagePropsType = {
     dialogsData: Array<DialogsDataPropsType>
     messagesData: Array<MessageDataPropsType>
     newMessage: string
 }
-
 type DialogsDataPropsType = {
     id: number
     name: string
 }
-
 type MessageDataPropsType = {
     id: number
     message: string
 }
-
 type FriendsDataPropsType = {
     friendsData: Array<FriendsPropsType>
 }
-
 type FriendsPropsType = {
     name: string
     logo: string
 }
-
 type NewPostType = {
     id: number
     message: string
     numberLike: number
 }
-
 type NewMessageType = {
     id: number
     message: string
