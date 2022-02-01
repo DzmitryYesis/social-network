@@ -35,7 +35,7 @@ export const Dialogs = ({data, dispatch, ...props}: DialogsPagePropsType) => {
             </div>
             <div className={s.messages}>
                 {
-                    data.messagesData.map(m => <Message message={m.message} id={m.id}/>)
+                    data.messagesData.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
                 }
                 <textarea value={data.newMessage} onChange={changeMessageHandler}></textarea>
                 <div>

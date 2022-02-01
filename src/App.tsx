@@ -22,6 +22,8 @@ const App = () => {
     const dialogPage = useSelector<AppRootStateType, DialogsPagePropsType>((store) => store.dialogsPage)
     const dispatch = useDispatch()
 
+
+
     return (
         <div className={'app-wrapper'}>
             <Header/>
