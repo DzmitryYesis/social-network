@@ -1,26 +1,25 @@
 import React from 'react';
-import {PostDataPropsType} from '../Profile';
-import {ActionType, addPostAC, changeNewPostStateAC} from '../../../redux/Action';
+import {addPostAC, changeNewPostStateAC} from '../../../redux/Action';
 import MyPost from './MyPost';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppRootStateType} from '../../../redux/store-redux';
+import {ProfilePagePropsType} from '../../../redux/profileReducer';
 
-type MyPostConteinerPropsType = {
-    data: PostDataPropsType
-    dispatch: (action: ActionType) => void
-}
 
-const MyPostConteiner = ({data, dispatch, ...props}: MyPostConteinerPropsType) => {
+const MyPostConteiner = () => {
 
+    const profilePage = useSelector<AppRootStateType, ProfilePagePropsType>((store) => store.profilePage)
+    const dispatch = useDispatch()
 
     const addPost = () => {
-        dispatch(addPostAC(data.newPost))
+        dispatch(addPostAC(profilePage.newPost))
     }
     const changePostHandler = (text: string) => {
         dispatch(changeNewPostStateAC(text))
     }
 
     return (
-        <MyPost addPost={addPost} changePostHandler={changePostHandler} newPost={data.newPost}
-                postData={data.postData}/>
+        <MyPost addPost={addPost} changePostHandler={changePostHandler} profilePage={profilePage}/>
     )
 
 }

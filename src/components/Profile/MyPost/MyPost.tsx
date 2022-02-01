@@ -1,12 +1,12 @@
 import s from './MyPost.module.css';
 import React, {ChangeEvent} from 'react';
-import Post, {PostPropsType} from './Post/Post';
+import Post from './Post/Post';
+import {ProfilePagePropsType} from '../../../redux/profileReducer';
 
 type MyPostPropsType = {
     addPost: () => void
     changePostHandler: (text: string) => void
-    newPost: string
-    postData: Array<PostPropsType>
+    profilePage: ProfilePagePropsType
 }
 
 const MyPost = (props: MyPostPropsType) => {
@@ -23,14 +23,15 @@ const MyPost = (props: MyPostPropsType) => {
         <div className={s.postBlock}>
             <h3>My posts</h3>
             <div>
-                <textarea onChange={changePostHandler} value={props.newPost}></textarea>
+                <textarea onChange={changePostHandler} value={props.profilePage.newPost}></textarea>
             </div>
             <div>
                 <button onClick={addPost}>Add post</button>
             </div>
             <div className={s.posts}>
                 {
-                    props.postData.map(v => <Post key={v.id} message={v.message} numberLike={v.numberLike} id={v.id}/>)
+                    props.profilePage.postData.map(v => <Post key={v.id} message={v.message} numberLike={v.numberLike}
+                                                              id={v.id}/>)
                 }
             </div>
         </div>

@@ -21,6 +21,7 @@ let initialState = {
     newMessage: '',
 }
 
+
 export type DialogsPagePropsType = {
     dialogsData: Array<DialogsDataPropsType>
     messagesData: Array<MessageDataPropsType>

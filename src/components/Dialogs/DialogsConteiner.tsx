@@ -1,25 +1,18 @@
 import React from 'react';
-import {DialogsPropsType} from './DialogItem/DialogItem';
-import {MessagePropsType} from './Message/Message';
-import {ActionType, addNewMessageAC, changeMessagePostStateAC} from '../../redux/Action';
+import {addNewMessageAC, changeMessagePostStateAC} from '../../redux/Action';
 import {Dialogs} from './Dialogs';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppRootStateType} from '../../redux/store-redux';
+import {DialogsPagePropsType} from '../../redux/dialogsReducer';
 
-export type DialogsType = {
-    dialogsData: Array<DialogsPropsType>
-    messagesData: Array<MessagePropsType>
-    newMessage: string
-}
 
-export type DialogsConteinerPagePropsType = {
-    data: DialogsType
-    dispatch: (action: ActionType) => void
-}
+export const DialogsConteiner = () => {
 
-export const DialogsConteiner = ({data, dispatch, ...props}: DialogsConteinerPagePropsType) => {
-
+    const dialogPage = useSelector<AppRootStateType, DialogsPagePropsType>((store) => store.dialogsPage)
+    const dispatch = useDispatch()
 
     const sendMessage = () => {
-        dispatch(addNewMessageAC(data.newMessage))
+        dispatch(addNewMessageAC(dialogPage.newMessage))
     }
 
     const changeMessageHandler = (text: string) => {
@@ -27,7 +20,8 @@ export const DialogsConteiner = ({data, dispatch, ...props}: DialogsConteinerPag
     }
 
     return (
-        <Dialogs newMessage={data.newMessage} dialogsData={data.dialogsData} messagesData={data.messagesData}
+        <Dialogs dialogsPage={dialogPage}
                  sendMessage={sendMessage} changeMessageHandler={changeMessageHandler}/>
     )
 }
+

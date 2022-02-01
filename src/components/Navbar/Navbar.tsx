@@ -2,13 +2,9 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import s from './Navbar.module.css';
 import {Friends} from './Friends/Friends';
-import {FriendPropsType} from './Friends/Friend/Friend';
 
-export type FriendsPropsType = {
-    friendsData: Array<FriendPropsType>
-}
 
-export const Navbar = ({friendsData, ...props}: FriendsPropsType) => {
+export const Navbar = () => {
     return (
         <div className={s.nav}>
             <div className={s.item}>
@@ -27,7 +23,7 @@ export const Navbar = ({friendsData, ...props}: FriendsPropsType) => {
                 <NavLink to={'/settings'} className={({isActive}) => isActive ? s.active : ''}>Settings</NavLink>
             </div>
             <div>
-                <Friends friendsData={friendsData}/>
+                <Friends/>
             </div>
         </div>
     )

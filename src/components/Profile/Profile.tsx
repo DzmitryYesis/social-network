@@ -1,27 +1,14 @@
 import React from 'react';
-import s from './Profile.module.css'
-import MyPost from './MyPost/MyPost';
 import {ProfileInfo} from './ProfileInfo/ProfileInfo';
-import {PostPropsType} from './MyPost/Post/Post';
-import {ActionType} from '../../redux/Action';
 import MyPostConteiner from './MyPost/MyPostConteiner';
 
-export type PostDataPropsType = {
-    postData: Array<PostPropsType>
-    newPost: string
-}
 
-export type ProfilePropsType = {
-    data: PostDataPropsType
-    dispatch: (action: ActionType) => void
-}
-
-export const Profile = ({data, dispatch, ...props}: ProfilePropsType) => {
+export const Profile = () => {
 
     return (
         <div>
             <ProfileInfo/>
-            <MyPostConteiner data={data} dispatch={dispatch}/>
+            <MyPostConteiner/>
         </div>
     )
 
