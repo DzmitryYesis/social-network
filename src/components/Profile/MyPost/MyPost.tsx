@@ -3,10 +3,10 @@ import React, {ChangeEvent} from 'react';
 import Post, {PostPropsType} from './Post/Post';
 
 type MyPostPropsType = {
-    addPost:()=>void
-    changePostHandler:(text:string)=>void
+    addPost: () => void
+    changePostHandler: (text: string) => void
     newPost: string
-    postData:Array<PostPropsType>
+    postData: Array<PostPropsType>
 }
 
 const MyPost = (props: MyPostPropsType) => {

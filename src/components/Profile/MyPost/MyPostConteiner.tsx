@@ -14,12 +14,13 @@ const MyPostConteiner = ({data, dispatch, ...props}: MyPostConteinerPropsType) =
     const addPost = () => {
         dispatch(addPostAC(data.newPost))
     }
-    const changePostHandler = (text:string) => {
+    const changePostHandler = (text: string) => {
         dispatch(changeNewPostStateAC(text))
     }
 
     return (
-        <MyPost addPost={addPost} changePostHandler={changePostHandler} newPost={data.newPost} postData={data.postData} />
+        <MyPost addPost={addPost} changePostHandler={changePostHandler} newPost={data.newPost}
+                postData={data.postData}/>
     )
 
 }

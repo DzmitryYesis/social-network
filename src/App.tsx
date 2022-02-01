@@ -13,6 +13,7 @@ import {AppRootStateType, store} from './redux/store-redux';
 import {FriendsDataPropsType} from './redux/sidebarReducer';
 import {ProfilePagePropsType} from './redux/profileReducer';
 import {DialogsPagePropsType} from './redux/dialogsReducer';
+import {DialogsConteiner} from './components/Dialogs/DialogsConteiner';
 
 
 const App = () => {
@@ -37,7 +38,7 @@ const App = () => {
                            />}
                     />
                     <Route path={'/dialogs/*'}
-                           element={<Dialogs
+                           element={<DialogsConteiner
                                data={dialogPage}
                                dispatch={dispatch.bind(store)}
                            />}
