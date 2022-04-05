@@ -1,9 +1,10 @@
 import React from 'react';
-import {addPostAC, changeNewPostStateAC} from '../../../store/actions/Action';
+
 import MyPost from './MyPost';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from '../../../store/store-redux';
 import {ProfilePagePropsType} from '../../../store/reducers/profileReducer';
+import {addPostAC, changeNewPostStateAC} from '../../../store/actions/profileActions';
 
 
 const MyPostConteiner = () => {

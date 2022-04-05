@@ -1,4 +1,5 @@
-import {ActionType} from '../actions/Action';
+import {CommonActionsType} from '../actions/type/commonActionsType';
+
 
 export type FriendsDataPropsType = {
     friendsData: Array<FriendsPropsType>
@@ -23,6 +24,6 @@ let initialState = {
     ]
 }
 
-export const sidebarReducer = (state: FriendsDataPropsType = initialState, action: ActionType): FriendsDataPropsType => {
+export const sidebarReducer = (state: FriendsDataPropsType = initialState, action: CommonActionsType): FriendsDataPropsType => {
     return {...state}
 }

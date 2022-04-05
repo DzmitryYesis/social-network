@@ -1,4 +1,5 @@
-import {ActionType} from '../actions/Action';
+import {CommonActionsType} from '../actions/type/commonActionsType';
+
 
 let initialState = {
     dialogsData: [
@@ -41,7 +42,7 @@ type NewMessageType = {
 }
 
 
-export const dialogsReducer = (state: DialogsPagePropsType = initialState, action: ActionType): DialogsPagePropsType => {
+export const dialogsReducer = (state: DialogsPagePropsType = initialState, action: CommonActionsType): DialogsPagePropsType => {
     switch (action.type) {
         case 'ADD-NEW-MESSAGE':
             let newMessage: NewMessageType = {

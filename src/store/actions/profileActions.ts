@@ -1,3 +1,5 @@
+
+
 export const addPostAC = (newPost: string) =>
     ({type: 'ADD-NEW-POST', text: newPost} as const)
 

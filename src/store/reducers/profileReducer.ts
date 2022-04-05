@@ -1,4 +1,4 @@
-import {ActionType} from '../actions/Action';
+import {CommonActionsType} from '../actions/type/commonActionsType';
 
 let initialState = {
     postData: [
@@ -26,7 +26,7 @@ type NewPostType = {
     numberLike: number
 }
 
-export const profileReducer = (state: ProfilePagePropsType = initialState, action: ActionType): ProfilePagePropsType => {
+export const profileReducer = (state: ProfilePagePropsType = initialState, action: CommonActionsType): ProfilePagePropsType => {
     switch (action.type) {
         case 'ADD-NEW-POST':
             let newPost: NewPostType = {
