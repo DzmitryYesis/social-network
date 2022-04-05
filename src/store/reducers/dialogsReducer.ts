@@ -47,7 +47,7 @@ export const dialogsReducer = (state: DialogsPagePropsType = initialState, actio
         case ADD_NEW_MESSAGE:
             let newMessage: NewMessageType = {
                 id: new Date().getDate(),
-                message: action.payload.newMessage
+                message: action.payload.message
             }
             return {...state, messagesData: [...state.messagesData, newMessage], newMessage: ''}
         case CHANGE_MESSAGE_POST_STATE:
