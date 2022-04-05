@@ -1,4 +1,5 @@
 import {CommonActionsType} from '../actions/type/commonActionsType';
+import {ADD_NEW_POST, CHANGE_POST_STATE} from '../actions/profileActions';
 
 let initialState = {
     postData: [
@@ -28,15 +29,15 @@ type NewPostType = {
 
 export const profileReducer = (state: ProfilePagePropsType = initialState, action: CommonActionsType): ProfilePagePropsType => {
     switch (action.type) {
-        case 'ADD-NEW-POST':
+        case ADD_NEW_POST:
             let newPost: NewPostType = {
                 id: new Date().getDate(),
-                message: action.text,
+                message: action.payload.post,
                 numberLike: 0
             }
             return {...state, postData: [...state.postData, newPost], newPost: ''}
-        case 'CHANGE-POST-STATE':
-            return {...state, newPost: action.newPost}
+        case CHANGE_POST_STATE:
+            return {...state, newPost: action.payload.newPost}
         default:
             return state
     }
