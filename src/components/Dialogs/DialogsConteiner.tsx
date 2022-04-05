@@ -1,9 +1,9 @@
 import React from 'react';
-import {addNewMessageAC, changeMessagePostStateAC} from '../../redux/Action';
+import {addNewMessageAC, changeMessagePostStateAC} from '../../store/actions/Action';
 import {Dialogs} from './Dialogs';
 import {useDispatch, useSelector} from 'react-redux';
-import {AppRootStateType} from '../../redux/store-redux';
-import {DialogsPagePropsType} from '../../redux/dialogsReducer';
+import {AppRootStateType} from '../../store/store-redux';
+import {DialogsPagePropsType} from '../../store/reducers/dialogsReducer';
 
 
 export const DialogsConteiner = () => {

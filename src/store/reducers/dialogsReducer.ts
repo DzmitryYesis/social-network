@@ -1,4 +1,4 @@
-import {ActionType} from './Action';
+import {ActionType} from '../actions/Action';
 
 let initialState = {
     dialogsData: [

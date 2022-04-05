@@ -2,8 +2,8 @@ import s from './Friends.module.css';
 import React from 'react';
 import {Friend} from './Friend/Friend';
 import {useSelector} from 'react-redux';
-import {AppRootStateType} from '../../../redux/store-redux';
-import {FriendsDataPropsType} from '../../../redux/sidebarReducer';
+import {AppRootStateType} from '../../../store/store-redux';
+import {FriendsDataPropsType} from '../../../store/reducers/sidebarReducer';
 
 
 export const Friends = () => {

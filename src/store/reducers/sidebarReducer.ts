@@ -1,4 +1,4 @@
-import {ActionType} from './Action';
+import {ActionType} from '../actions/Action';
 
 export type FriendsDataPropsType = {
     friendsData: Array<FriendsPropsType>
