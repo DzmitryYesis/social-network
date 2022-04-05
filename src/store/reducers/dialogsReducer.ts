@@ -1,5 +1,5 @@
 import {CommonActionsType} from '../actions/type/commonActionsType';
-
+import {ADD_NEW_MESSAGE, CHANGE_MESSAGE_POST_STATE} from '../actions/dialogsActions';
 
 let initialState = {
     dialogsData: [
@@ -44,14 +44,14 @@ type NewMessageType = {
 
 export const dialogsReducer = (state: DialogsPagePropsType = initialState, action: CommonActionsType): DialogsPagePropsType => {
     switch (action.type) {
-        case 'ADD-NEW-MESSAGE':
+        case ADD_NEW_MESSAGE:
             let newMessage: NewMessageType = {
                 id: new Date().getDate(),
-                message: action.text
+                message: action.payload.newMessage
             }
             return {...state, messagesData: [...state.messagesData, newMessage], newMessage: ''}
-        case 'CHANGE-MESSAGE-POST':
-            return {...state, newMessage: action.newMessage}
+        case CHANGE_MESSAGE_POST_STATE:
+            return {...state, newMessage: action.payload.newMessage}
         default:
             return state
     }
