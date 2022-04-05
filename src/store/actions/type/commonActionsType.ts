@@ -1,4 +1,4 @@
-import {ProfileActionsType} from './profileActionsType';
-import {DialogsActionsType} from './dialogsActionsType';
+import { DialogsActionsType } from './dialogsActionsType';
+import { ProfileActionsType } from './profileActionsType';
 
-export type CommonActionsType = ProfileActionsType | DialogsActionsType
+export type CommonActionsType = ProfileActionsType | DialogsActionsType;

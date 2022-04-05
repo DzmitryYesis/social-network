@@ -1,3 +1,5 @@
-import {addPostAC, changeNewPostStateAC} from '../profileActions';
+import { addPostAC, changeNewPostStateAC } from '../profileActions';
 
-export type ProfileActionsType = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewPostStateAC>
+export type ProfileActionsType =
+  | ReturnType<typeof addPostAC>
+  | ReturnType<typeof changeNewPostStateAC>;

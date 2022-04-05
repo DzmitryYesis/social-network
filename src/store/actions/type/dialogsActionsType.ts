@@ -1,4 +1,5 @@
-import {addNewMessageAC, changeMessagePostStateAC} from '../dialogsActions';
+import { addNewMessageAC, changeMessagePostStateAC } from '../dialogsActions';
 
-export type DialogsActionsType = ReturnType<typeof addNewMessageAC>
-    | ReturnType<typeof changeMessagePostStateAC>
+export type DialogsActionsType =
+  | ReturnType<typeof addNewMessageAC>
+  | ReturnType<typeof changeMessagePostStateAC>;
