@@ -1,3 +1,5 @@
+# Social network
+
 SPA for social actions - messaging and blogging.
 
 Technologies: SCSS, JavaScript, TypeScript, React, Redux, Redux-form, Axios, Reselect.
