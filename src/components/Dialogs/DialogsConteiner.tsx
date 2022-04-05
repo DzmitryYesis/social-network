@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Dialogs} from './Dialogs';
 import {useDispatch, useSelector} from 'react-redux';
-import {AppRootStateType} from '../../store/store-redux';
+import {AppRootStateType} from '../../store/store';
 import {DialogsPagePropsType} from '../../store/reducers/dialogsReducer';
 import {addNewMessageAC, changeMessagePostStateAC} from '../../store/actions/dialogsActions';
 

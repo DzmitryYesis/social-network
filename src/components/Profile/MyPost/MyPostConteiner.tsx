@@ -2,7 +2,7 @@ import React from 'react';
 
 import MyPost from './MyPost';
 import {useDispatch, useSelector} from 'react-redux';
-import {AppRootStateType} from '../../../store/store-redux';
+import {AppRootStateType} from '../../../store/store';
 import {ProfilePagePropsType} from '../../../store/reducers/profileReducer';
 import {addPostAC, changeNewPostStateAC} from '../../../store/actions/profileActions';
 
