@@ -11,6 +11,7 @@ import { Profile } from './components/Profile/Profile';
 import { Settings } from './components/Settings/Settings';
 
 import { DialogsContainer } from 'components/Dialogs/DialogsContainer';
+import { PATH } from 'enum/path';
 
 const App = (): ReactElement => (
   <div className="app-wrapper">
@@ -18,11 +19,11 @@ const App = (): ReactElement => (
     <Navbar />
     <div className="app-wrapper-content">
       <Routes>
-        <Route path="/profile" element={<Profile />} />
-        <Route path={'/dialogs/*'} element={<DialogsContainer />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/music" element={<Music />} />
-        <Route path={'/settings/*'} element={<Settings />} />
+        <Route path={PATH.PROFILE} element={<Profile />} />
+        <Route path={PATH.DIALOGS} element={<DialogsContainer />} />
+        <Route path={PATH.NEWS} element={<News />} />
+        <Route path={PATH.MUSIC} element={<Music />} />
+        <Route path={PATH.SETTINGS} element={<Settings />} />
       </Routes>
     </div>
   </div>
