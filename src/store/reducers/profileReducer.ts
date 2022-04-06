@@ -1,6 +1,8 @@
 import { ADD_NEW_POST, CHANGE_POST_STATE } from '../actions/profileActions';
 import { CommonActionsType } from '../actions/type/commonActionsType';
 
+import { ProfilePagePropsType } from 'store/reducers/type/profileReducerType';
+
 const initialState = {
   postsData: [
     { id: 1, post: 'Hi! How are you?', numberLike: 5 },
@@ -10,16 +12,6 @@ const initialState = {
     { id: 5, post: 'My wife loves me', numberLike: 913 },
   ],
   newPost: '',
-};
-
-export type ProfilePagePropsType = {
-  postsData: Array<PostDataPropsType>;
-  newPost: string;
-};
-type PostDataPropsType = {
-  id: number;
-  post: string;
-  numberLike: number;
 };
 
 export const profileReducer = (

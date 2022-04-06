@@ -1,10 +1,4 @@
-export type FriendsDataPropsType = {
-  friendsData: Array<FriendsPropsType>;
-};
-type FriendsPropsType = {
-  name: string;
-  logo: string;
-};
+import { FriendsDataPropsType } from 'store/reducers/type/sidebarReducerType';
 
 const initialState = {
   friendsData: [

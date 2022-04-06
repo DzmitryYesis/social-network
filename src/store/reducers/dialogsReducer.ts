@@ -1,6 +1,8 @@
 import { ADD_NEW_MESSAGE, CHANGE_MESSAGE_STATE } from '../actions/dialogsActions';
 import { CommonActionsType } from '../actions/type/commonActionsType';
 
+import { DialogsPagePropsType } from 'store/reducers/type/dialogsReducerType';
+
 const initialState = {
   dialogsData: [
     { id: 1, name: 'Brat' },
@@ -20,20 +22,6 @@ const initialState = {
     { id: 6, message: "It's joke" },
   ],
   newMessage: '',
-};
-
-export type DialogsPagePropsType = {
-  dialogsData: Array<DialogsDataPropsType>;
-  messagesData: Array<MessageDataPropsType>;
-  newMessage: string;
-};
-type DialogsDataPropsType = {
-  id: number;
-  name: string;
-};
-type MessageDataPropsType = {
-  id: number;
-  message: string;
 };
 
 export const dialogsReducer = (
