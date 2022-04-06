@@ -1,7 +1,5 @@
-import { ADD_NEW_MESSAGE, CHANGE_MESSAGE_STATE } from '../actions/dialogsActions';
-import { CommonActionsType } from '../actions/type/commonActionsType';
-
-import { DialogsPagePropsType } from 'store/reducers/type/dialogsReducerType';
+import { ADD_NEW_MESSAGE, CHANGE_MESSAGE_STATE, CommonActionsType } from 'store/actions';
+import { DialogsPagePropsType } from 'store/reducers';
 
 const initialState = {
   dialogsData: [

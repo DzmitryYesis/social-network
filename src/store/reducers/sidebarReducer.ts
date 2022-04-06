@@ -1,4 +1,4 @@
-import { FriendsDataPropsType } from 'store/reducers/type/sidebarReducerType';
+import { FriendsDataPropsType } from 'store/reducers';
 
 const initialState = {
   friendsData: [
