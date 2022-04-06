@@ -7,7 +7,7 @@ import {DialogsPagePropsType} from '../../store/reducers/dialogsReducer';
 import {addNewMessageAC, changeMessagePostStateAC} from '../../store/actions/dialogsActions';
 
 
-export const DialogsConteiner = () => {
+export const DialogsContainer = () => {
 
     const dialogPage = useSelector<AppRootStateType, DialogsPagePropsType>((store) => store.dialogsPage)
     const dispatch = useDispatch()
