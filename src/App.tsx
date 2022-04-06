@@ -11,7 +11,7 @@ import { Profile } from './components/Profile/Profile';
 import { Settings } from './components/Settings/Settings';
 
 import { DialogsContainer } from 'components/Dialogs/DialogsContainer';
-import { PATH } from 'enum/path';
+import { PATH } from 'enum';
 
 const App = (): ReactElement => (
   <div className="app-wrapper">
