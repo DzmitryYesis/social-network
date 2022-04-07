@@ -10,7 +10,7 @@ import { News } from './components/News/News';
 import { Profile } from './components/Profile/Profile';
 import { Settings } from './components/Settings/Settings';
 
-import { DialogsContainer } from 'components/Dialogs/DialogsContainer';
+import { DialogsContainer } from 'components';
 import { PATH } from 'enum';
 
 const App = (): ReactElement => (
