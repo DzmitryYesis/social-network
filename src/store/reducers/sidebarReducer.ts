@@ -1,4 +1,4 @@
-import { FriendsDataPropsType } from 'store/reducers';
+import { FriendsDataPropsType } from 'types';
 
 const initialState = {
   friendsData: [

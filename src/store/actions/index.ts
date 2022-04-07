@@ -11,5 +11,3 @@ export {
   changeNewPostStateAC,
   addPostAC,
 } from './profileActions';
-
-export type { DialogsActionsType, CommonActionsType, ProfileActionsType } from './type';

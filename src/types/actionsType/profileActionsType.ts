@@ -1,4 +1,4 @@
-import { addPostAC, changeNewPostStateAC } from '../profileActions';
+import { addPostAC, changeNewPostStateAC } from 'store/actions';
 
 export type ProfileActionsType =
   | ReturnType<typeof addPostAC>

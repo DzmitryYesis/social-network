@@ -1,20 +1,14 @@
 import React, { ChangeEvent, ReactElement } from 'react';
 
 import s from './Dialogs.module.css';
-import { Message } from './Message/Message';
+import { Message } from './Message';
+import { UserName } from './UserName';
 
-import { UserName } from 'components/Dialogs/UserName/UserName';
 import {
   DialogsDataPropsType,
-  DialogsPagePropsType,
+  DialogsMessagePropsType,
   MessageDataPropsType,
-} from 'store/reducers';
-
-export type DialogsMessagePropsType = {
-  dialogsPage: DialogsPagePropsType;
-  sendMessage: () => void;
-  writeMessage: (text: string) => void;
-};
+} from 'types';
 
 export const Dialogs = ({
   dialogsPage,

@@ -1,5 +1,5 @@
-import { ADD_NEW_POST, CHANGE_POST_STATE, CommonActionsType } from 'store/actions';
-import { ProfilePagePropsType } from 'store/reducers';
+import { ADD_NEW_POST, CHANGE_POST_STATE } from 'store/actions';
+import { ProfilePagePropsType, CommonActionsType } from 'types';
 
 const initialState = {
   postsData: [

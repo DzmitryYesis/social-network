@@ -6,7 +6,7 @@ import { Dialogs } from './Dialogs';
 
 import { AppRootStateType } from 'store';
 import { addNewMessageAC, changeMessagePostStateAC } from 'store/actions';
-import { DialogsPagePropsType } from 'store/reducers';
+import { DialogsPagePropsType } from 'types';
 
 export const DialogsContainer = (): ReactElement => {
   const dialogPage = useSelector<AppRootStateType, DialogsPagePropsType>(
