@@ -3,8 +3,8 @@ import { combineReducers, createStore } from 'redux';
 import { dialogsReducer, profileReducer, sidebarReducer } from 'store/reducers';
 
 const rootReducer = combineReducers({
-  profilePage: profileReducer,
-  dialogsPage: dialogsReducer,
+  profileData: profileReducer,
+  dialogsData: dialogsReducer,
   sidebar: sidebarReducer,
 });
 

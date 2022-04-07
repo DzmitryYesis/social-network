@@ -1,4 +1,8 @@
-export type { DialogsPagePropsType } from './dialogsReducerType';
+export type {
+  DialogsPagePropsType,
+  DialogsDataPropsType,
+  MessageDataPropsType,
+} from './dialogsReducerType';
 
 export type { ProfilePagePropsType } from './profileReducerType';
 

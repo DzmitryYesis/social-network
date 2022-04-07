@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-import {Dialogs} from './Dialogs';
-import {useDispatch, useSelector} from 'react-redux';
-import {AppRootStateType} from '../../store/store';
-import {DialogsPagePropsType} from '../../store/reducers/dialogsReducer';
-import {addNewMessageAC, changeMessagePostStateAC} from '../../store/actions/dialogsActions';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { Dialogs } from './Dialogs';
 
-export const DialogsContainer = () => {
+import { AppRootStateType } from 'store';
+import { addNewMessageAC, changeMessagePostStateAC } from 'store/actions';
+import { DialogsPagePropsType } from 'store/reducers';
 
-    const dialogPage = useSelector<AppRootStateType, DialogsPagePropsType>((store) => store.dialogsPage)
-    const dispatch = useDispatch()
+export const DialogsContainer = (): ReactElement => {
+  const dialogPage = useSelector<AppRootStateType, DialogsPagePropsType>(
+    store => store.dialogsData,
+  );
+  const dispatch = useDispatch();
 
-    const sendMessage = () => {
-        dispatch(addNewMessageAC(dialogPage.newMessage))
-    }
+  const sendMessage = (): void => {
+    dispatch(addNewMessageAC(dialogPage.newMessage));
+  };
 
-    const changeMessageHandler = (text: string) => {
-        dispatch(changeMessagePostStateAC(text))
-    }
+  const writeMessage = (text: string): void => {
+    dispatch(changeMessagePostStateAC(text));
+  };
 
-    return (
-        <Dialogs dialogsPage={dialogPage}
-                 sendMessage={sendMessage} changeMessageHandler={changeMessageHandler}/>
-    )
-}
-
+  return (
+    <Dialogs
+      dialogsPage={dialogPage}
+      sendMessage={sendMessage}
+      writeMessage={writeMessage}
+    />
+  );
+};

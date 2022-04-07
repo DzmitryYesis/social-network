@@ -4,12 +4,12 @@ export type DialogsPagePropsType = {
   newMessage: string;
 };
 
-type DialogsDataPropsType = {
+export type DialogsDataPropsType = {
   id: number;
   name: string;
 };
 
-type MessageDataPropsType = {
+export type MessageDataPropsType = {
   id: number;
   message: string;
 };

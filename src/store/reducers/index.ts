@@ -8,4 +8,6 @@ export type {
   DialogsPagePropsType,
   ProfilePagePropsType,
   FriendsDataPropsType,
+  MessageDataPropsType,
+  DialogsDataPropsType,
 } from './type';

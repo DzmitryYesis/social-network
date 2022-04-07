@@ -1,1 +1,3 @@
-export { store, AppRootStateType } from './store';
+export { store } from './store';
+
+export type { AppRootStateType } from './store';

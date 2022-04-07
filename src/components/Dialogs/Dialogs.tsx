@@ -1,44 +1,50 @@
-import React, {ChangeEvent} from 'react';
-import s from './Dialogs.module.css'
-import {DialogItem} from './DialogItem/DialogItem';
-import {Message} from './Message/Message';
-import {DialogsPagePropsType} from '../../store/reducers/dialogsReducer';
+import React, { ChangeEvent, ReactElement } from 'react';
 
+import s from './Dialogs.module.css';
+import { Message } from './Message/Message';
+
+import { UserName } from 'components/Dialogs/UserName/UserName';
+import {
+  DialogsDataPropsType,
+  DialogsPagePropsType,
+  MessageDataPropsType,
+} from 'store/reducers';
 
 export type DialogsMessagePropsType = {
-    dialogsPage: DialogsPagePropsType
-    sendMessage: () => void
-    changeMessageHandler: (text: string) => void
-}
+  dialogsPage: DialogsPagePropsType;
+  sendMessage: () => void;
+  writeMessage: (text: string) => void;
+};
 
-export const Dialogs = (props: DialogsMessagePropsType) => {
+export const Dialogs = ({
+  dialogsPage,
+  writeMessage,
+  sendMessage,
+}: DialogsMessagePropsType): ReactElement => {
+  const sendMessageHandle = (): void => {
+    sendMessage();
+  };
 
+  const writeMessageHandle = (e: ChangeEvent<HTMLTextAreaElement>): void => {
+    writeMessage(e.currentTarget.value);
+  };
 
-    const sendMessage = () => {
-        props.sendMessage()
-    }
-
-    const changeMessageHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.changeMessageHandler(e.currentTarget.value)
-    }
-
-    return (
-        <div className={s.dialogs}>
-            <div className={s.dialogsItems}>
-                {
-                    props.dialogsPage.dialogsData.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>)
-                }
-            </div>
-            <div className={s.messages}>
-                {
-                    props.dialogsPage.messagesData.map(m => <Message key={m.id} message={m.message} id={m.id}/>)
-                }
-                <textarea value={props.dialogsPage.newMessage} onChange={changeMessageHandler}></textarea>
-                <div>
-                    <button onClick={sendMessage}>Send message</button>
-                </div>
-            </div>
-
-        </div>
-    )
-}
+  return (
+    <div className={s.dialogs}>
+      <div className={s.dialogsItems}>
+        {dialogsPage.dialogsData.map((d: DialogsDataPropsType) => (
+          <UserName key={d.id} name={d.name} id={d.id} />
+        ))}
+      </div>
+      <div className={s.messages}>
+        {dialogsPage.messagesData.map((m: MessageDataPropsType) => (
+          <Message key={m.id} message={m.message} />
+        ))}
+        <textarea value={dialogsPage.newMessage} onChange={writeMessageHandle} />
+        <button type="button" onClick={sendMessageHandle}>
+          Send message
+        </button>
+      </div>
+    </div>
+  );
+};
