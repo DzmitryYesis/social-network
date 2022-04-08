@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Dialogs } from './Dialogs';
 
 import { addNewMessageAC, changeMessagePostStateAC } from 'store/actions';
-import { selectDialogPage } from 'store/selectors/selectorDialogs';
+import { selectDialogPage } from 'store/selectors';
 
 export const DialogsContainer = (): ReactElement => {
   const dispatch = useDispatch();

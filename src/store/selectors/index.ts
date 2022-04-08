@@ -1,0 +1,1 @@
+export { selectDialogPage } from './selectorDialogs';
