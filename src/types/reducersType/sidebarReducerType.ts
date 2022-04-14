@@ -3,6 +3,7 @@ export type FriendsDataPropsType = {
 };
 
 type FriendsPropsType = {
+  id: number;
   name: string;
   logo: string;
 };
