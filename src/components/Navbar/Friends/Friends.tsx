@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { Friend } from './Friend/Friend';
+import { Friend } from './Friend';
 import s from './Friends.module.css';
 
 import { selectFriedData } from 'store/selectors/selectorSidebar';
