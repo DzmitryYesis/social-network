@@ -1,10 +1,3 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-export const Music = () => {
-    return(
-        <div>
-            Music
-        </div>
-    )
-
-}
+export const Music = (): ReactElement => <div>Music</div>;
