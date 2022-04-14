@@ -1,10 +1,3 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-export const Settings = () => {
-    return(
-        <div>
-            Settings
-        </div>
-    )
-
-}
+export const Settings = (): ReactElement => <div>Settings</div>;
