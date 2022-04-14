@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { Friend } from './Friend';
 import s from './Friends.module.css';
 
-import { selectFriedData } from 'store/selectors/selectorSidebar';
+import { selectFriedData } from 'store/selectors';
 
 export const Friends = (): ReactElement => {
   const sidebar = useSelector(selectFriedData);
