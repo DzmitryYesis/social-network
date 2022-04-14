@@ -4,9 +4,8 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
 import { Profile } from './components/Profile/Profile';
-import { Settings } from './components/Settings/Settings';
 
-import { DialogsContainer, Header, Music, Navbar, News } from 'components';
+import { DialogsContainer, Header, Music, Navbar, News, Settings } from 'components';
 import { PATH } from 'enum';
 
 const App = (): ReactElement => (

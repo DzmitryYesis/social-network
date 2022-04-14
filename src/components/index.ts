@@ -7,3 +7,5 @@ export { Music } from './Music';
 export { Navbar } from './Navbar';
 
 export { News } from './News';
+
+export { Settings } from './Settings';
