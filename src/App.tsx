@@ -3,11 +3,10 @@ import React, { ReactElement } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
-import { News } from './components/News/News';
 import { Profile } from './components/Profile/Profile';
 import { Settings } from './components/Settings/Settings';
 
-import { DialogsContainer, Header, Music, Navbar } from 'components';
+import { DialogsContainer, Header, Music, Navbar, News } from 'components';
 import { PATH } from 'enum';
 
 const App = (): ReactElement => (

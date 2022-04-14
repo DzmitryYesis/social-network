@@ -5,3 +5,5 @@ export { Header } from './Header';
 export { Music } from './Music';
 
 export { Navbar } from './Navbar';
+
+export { News } from './News';
