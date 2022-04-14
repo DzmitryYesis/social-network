@@ -1,19 +1,15 @@
-import React from 'react';
-import s from './Friend.module.css'
+import React, { ReactElement } from 'react';
+
+import s from './Friend.module.css';
 
 export type FriendPropsType = {
-    name: string
-    logo: string
-}
+  name: string;
+  logo: string;
+};
 
-export const Friend = ({name,logo,...props}:FriendPropsType) => {
-    return (
-        <div className={s.friend}>
-            <img src={logo}/>
-            <div>
-                {name}
-            </div>
-        </div>
-    )
-
-}
+export const Friend = ({ name, logo }: FriendPropsType): ReactElement => (
+  <div className={s.friend}>
+    <img src={logo} alt="friend logo" />
+    <div>{name}</div>
+  </div>
+);
