@@ -1,3 +1,3 @@
 export { selectDialogPage } from './selectorDialogs';
 
-export { selectFriedData } from './selectorSidebar';
+export { selectFriendData } from './selectorSidebar';

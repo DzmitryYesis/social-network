@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 import { Friend } from './Friend';
 import s from './Friends.module.css';
 
-import { selectFriedData } from 'store/selectors';
+import { selectFriendData } from 'store/selectors';
 
 export const Friends = (): ReactElement => {
-  const sidebar = useSelector(selectFriedData);
+  const sidebar = useSelector(selectFriendData);
 
   return (
     <div className={s.friends}>
