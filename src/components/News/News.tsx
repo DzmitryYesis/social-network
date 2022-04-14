@@ -1,10 +1,3 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-export const News = () => {
-    return (
-        <div>
-            News
-        </div>
-    )
-
-}
+export const News = (): ReactElement => <div>News</div>;
