@@ -1,23 +1,26 @@
+import React, { ReactElement } from 'react';
+
+import { useSelector } from 'react-redux';
+
+import { FriendsDataPropsType } from '../../../store/reducers/sidebarReducer';
+import { AppRootStateType } from '../../../store/store';
+
+import { Friend } from './Friend/Friend';
 import s from './Friends.module.css';
-import React from 'react';
-import {Friend} from './Friend/Friend';
-import {useSelector} from 'react-redux';
-import {AppRootStateType} from '../../../store/store';
-import {FriendsDataPropsType} from '../../../store/reducers/sidebarReducer';
 
+export const Friends = (): ReactElement => {
+  const sidebar = useSelector<AppRootStateType, FriendsDataPropsType>(
+    store => store.sidebar,
+  );
 
-export const Friends = () => {
-
-    const sidebar = useSelector<AppRootStateType, FriendsDataPropsType>((store) => store.sidebar)
-
-    return (
-        <div className={s.friends}>
-            <h3>Friends</h3>
-            <div>
-                {
-                    sidebar.friendsData.map(f => <Friend name={f.name} logo={f.logo}/>)
-                }
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className={s.friends}>
+      <h3>Friends</h3>
+      <div>
+        {sidebar.friendsData.map(f => (
+          <Friend name={f.name} logo={f.logo} />
+        ))}
+      </div>
+    </div>
+  );
+};
