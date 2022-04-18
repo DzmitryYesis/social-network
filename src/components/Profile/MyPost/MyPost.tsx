@@ -1,8 +1,8 @@
 import React, { ChangeEvent, ReactElement } from 'react';
 
 import s from './MyPost.module.css';
+import { Post } from './Post';
 
-import { Post } from 'components/Profile/MyPost/Post/Post';
 import { ProfilePagePropsType } from 'types';
 
 type MyPostPropsType = {
