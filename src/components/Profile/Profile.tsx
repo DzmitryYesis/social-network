@@ -1,15 +1,12 @@
-import React from 'react';
-import {ProfileInfo} from './ProfileInfo/ProfileInfo';
-import MyPostContainer from './MyPostContainer';
+import React, { ReactElement } from 'react';
 
+import { ProfileInfo } from './ProfileInfo/ProfileInfo';
 
-export const Profile = () => {
+import { MyPostContainer } from 'components/Profile/MyPost';
 
-    return (
-        <div>
-            <ProfileInfo/>
-            <MyPostContainer/>
-        </div>
-    )
-
-}
+export const Profile = (): ReactElement => (
+  <div>
+    <ProfileInfo />
+    <MyPostContainer />
+  </div>
+);
