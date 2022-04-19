@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react';
 
-import { ProfileInfo } from './ProfileInfo/ProfileInfo';
-
 import { MyPostContainer } from 'components/Profile/MyPost';
+import { ProfileInfo } from 'components/Profile/ProfileInfo';
 
 export const Profile = (): ReactElement => (
   <div>
