@@ -4,15 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { MyPost } from './MyPost';
 
-import { AppRootStateType } from 'store';
 import { addPostAC, changeNewPostStateAC } from 'store/actions';
-import { ProfilePagePropsType } from 'types';
+import { selectProfileData } from 'store/selectors/selectorProfile';
 
 export const MyPostContainer = (): ReactElement => {
-  const profileData = useSelector<AppRootStateType, ProfilePagePropsType>(
-    store => store.profileData,
-  );
   const dispatch = useDispatch();
+
+  const profileData = useSelector(selectProfileData);
 
   const addPost = (): void => {
     dispatch(addPostAC(profileData.newPost));
