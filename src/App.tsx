@@ -3,9 +3,15 @@ import React, { ReactElement } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
-import { Profile } from './components/Profile/Profile';
-
-import { DialogsContainer, Header, Music, Navbar, News, Settings } from 'components';
+import {
+  DialogsContainer,
+  Header,
+  Music,
+  Navbar,
+  News,
+  Settings,
+  Profile,
+} from 'components';
 import { PATH } from 'enum';
 
 const App = (): ReactElement => (
