@@ -1,6 +1,6 @@
 import React from 'react';
 import {ProfileInfo} from './ProfileInfo/ProfileInfo';
-import MyPostConteiner from './MyPost/MyPostConteiner';
+import MyPostContainer from 'components/Profile/MyPost/MyPostContainer';
 
 
 export const Profile = () => {
@@ -8,7 +8,7 @@ export const Profile = () => {
     return (
         <div>
             <ProfileInfo/>
-            <MyPostConteiner/>
+            <MyPostContainer/>
         </div>
     )
 
