@@ -8,13 +8,13 @@ import { ProfilePagePropsType } from 'types';
 type MyPostPropsType = {
   addPost: () => void;
   changePost: (text: string) => void;
-  profilePage: ProfilePagePropsType;
+  profileData: ProfilePagePropsType;
 };
 
 export const MyPost = ({
   addPost,
   changePost,
-  profilePage,
+  profileData,
 }: MyPostPropsType): ReactElement => {
   const addPostHandle = (): void => {
     addPost();
@@ -27,7 +27,7 @@ export const MyPost = ({
     <div className={s.postBlock}>
       <h3>My posts</h3>
       <div>
-        <textarea onChange={changePostHandle} value={profilePage.newPost} />
+        <textarea onChange={changePostHandle} value={profileData.newPost} />
       </div>
       <div>
         <button onClick={addPostHandle} type="button">
@@ -35,7 +35,7 @@ export const MyPost = ({
         </button>
       </div>
       <div className={s.posts}>
-        {profilePage.postsData.map(v => (
+        {profileData.postsData.map(v => (
           <Post key={v.id} post={v.post} numberLike={v.numberLike} />
         ))}
       </div>
