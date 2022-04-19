@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { MyPost } from './MyPost';
 
 import { addPostAC, changeNewPostStateAC } from 'store/actions';
-import { selectProfileData } from 'store/selectors/selectorProfile';
+import { selectProfileData } from 'store/selectors';
 
 export const MyPostContainer = (): ReactElement => {
   const dispatch = useDispatch();
