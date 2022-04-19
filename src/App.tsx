@@ -14,7 +14,7 @@ import {
 } from 'components';
 import { PATH } from 'enum';
 
-const App = (): ReactElement => (
+export const App = (): ReactElement => (
   <div className="app-wrapper">
     <Header />
     <Navbar />
@@ -29,5 +29,3 @@ const App = (): ReactElement => (
     </div>
   </div>
 );
-
-export default App;
