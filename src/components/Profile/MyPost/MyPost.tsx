@@ -7,20 +7,20 @@ import { ProfilePagePropsType } from 'types';
 
 type MyPostPropsType = {
   addPost: () => void;
-  changePostHandler: (text: string) => void;
+  changePost: (text: string) => void;
   profilePage: ProfilePagePropsType;
 };
 
 export const MyPost = ({
   addPost,
-  changePostHandler,
+  changePost,
   profilePage,
 }: MyPostPropsType): ReactElement => {
   const addPostHandle = (): void => {
     addPost();
   };
   const changePostHandle = (e: ChangeEvent<HTMLTextAreaElement>): void => {
-    changePostHandler(e.currentTarget.value);
+    changePost(e.currentTarget.value);
   };
 
   return (
