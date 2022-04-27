@@ -11,8 +11,8 @@ import {
   News,
   Settings,
   Profile,
+  Users,
 } from 'components';
-import { Users } from 'components/Users/Users';
 import { PATH } from 'enum';
 
 export const App = (): ReactElement => (
