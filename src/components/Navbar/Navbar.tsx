@@ -20,6 +20,11 @@ export const Navbar = (): ReactElement => (
       </NavLink>
     </div>
     <div className={s.item}>
+      <NavLink to={PATH.USERS} className={({ isActive }) => (isActive ? s.active : '')}>
+        Users
+      </NavLink>
+    </div>
+    <div className={s.item}>
       <NavLink to={PATH.NEWS} className={({ isActive }) => (isActive ? s.active : '')}>
         News
       </NavLink>
