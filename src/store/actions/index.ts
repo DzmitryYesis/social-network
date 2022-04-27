@@ -11,3 +11,12 @@ export {
   changeNewPostStateAC,
   addPostAC,
 } from './profileActions';
+
+export {
+  UNFOLLOWED,
+  FOLLOWED,
+  SET_STATE,
+  unFollowedAC,
+  followedAC,
+  setUsersAC,
+} from './usersActions';
