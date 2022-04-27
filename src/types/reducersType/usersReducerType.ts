@@ -2,7 +2,7 @@ export type UsersReducerType = {
   users: UsersPagePropsType[];
 };
 
-type UsersPagePropsType = {
+export type UsersPagePropsType = {
   id: number;
   followed: boolean;
   fullName: string;

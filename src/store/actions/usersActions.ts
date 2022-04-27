@@ -1,4 +1,4 @@
-import { UsersReducerType } from 'types';
+import { UsersPagePropsType } from 'types';
 
 export const FOLLOWED = 'USERS/FOLLOWED';
 export const UNFOLLOWED = 'USERS/UNFOLLOWED';
@@ -20,7 +20,7 @@ export const unFollowedAC = (userID: string) =>
     },
   } as const);
 
-export const setUsersAC = (state: UsersReducerType) =>
+export const setUsersAC = (state: UsersPagePropsType[]) =>
   ({
     type: SET_STATE,
     payload: {
