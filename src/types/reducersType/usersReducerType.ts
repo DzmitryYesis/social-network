@@ -3,7 +3,7 @@ export type UsersReducerType = {
 };
 
 export type UsersPagePropsType = {
-  id: number;
+  id: string;
   followed: boolean;
   fullName: string;
   status: string;
