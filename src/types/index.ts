@@ -2,6 +2,7 @@ export type {
   CommonActionsType,
   DialogsActionsType,
   ProfileActionsType,
+  UsersActionsType,
 } from './actionsType';
 
 export type {

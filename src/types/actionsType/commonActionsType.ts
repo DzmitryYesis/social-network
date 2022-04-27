@@ -1,3 +1,6 @@
-import { DialogsActionsType, ProfileActionsType } from 'types';
+import { DialogsActionsType, ProfileActionsType, UsersActionsType } from 'types';
 
-export type CommonActionsType = ProfileActionsType | DialogsActionsType;
+export type CommonActionsType =
+  | ProfileActionsType
+  | DialogsActionsType
+  | UsersActionsType;
