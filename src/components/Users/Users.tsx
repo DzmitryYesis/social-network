@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 
 import { useSelector } from 'react-redux';
 
+import { User } from 'components/Users/User/User';
 import { AppRootStateType } from 'store';
 import { UsersPagePropsType } from 'types';
 
@@ -12,30 +13,14 @@ export const Users = (): ReactElement => {
   return (
     <div>
       {users.map(u => (
-        <div key={u.id}>
-          <div>
-            <div>
-              <img src="qwe" alt="user-logo" />
-            </div>
-            <div>
-              {u.followed ? (
-                <button type="button">UNFOLLOWED</button>
-              ) : (
-                <button type="button">FOLLOWED</button>
-              )}
-            </div>
-          </div>
-          <div>
-            <div>
-              <div>{u.fullName}</div>
-              <div>{u.status}</div>
-            </div>
-            <div>
-              <div>{u.location.city}</div>
-              <div>{u.location.country}</div>
-            </div>
-          </div>
-        </div>
+        <User
+          key={u.id}
+          id={u.id}
+          followed={u.followed}
+          fullName={u.fullName}
+          status={u.status}
+          location={u.location}
+        />
       ))}
     </div>
   );
