@@ -2,7 +2,8 @@ import { ReactElement } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { User } from 'components/Users/User/User';
+import { User } from './User';
+
 import { AppRootStateType } from 'store';
 import { UsersPagePropsType } from 'types';
 
