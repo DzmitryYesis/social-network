@@ -4,13 +4,11 @@ import { useSelector } from 'react-redux';
 
 import { User } from './User';
 
-import { AppRootStateType } from 'store';
-import { UsersPagePropsType } from 'types';
+import { selectUsers } from 'store/selectors';
 
 export const Users = (): ReactElement => {
-  const users = useSelector<AppRootStateType, UsersPagePropsType[]>(
-    state => state.users.users,
-  );
+  const users = useSelector(selectUsers);
+
   return (
     <div>
       {users.map(u => (
