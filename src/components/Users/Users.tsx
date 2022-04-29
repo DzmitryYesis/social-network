@@ -17,6 +17,7 @@ export const Users = (): ReactElement => {
           id={u.id}
           followed={u.followed}
           fullName={u.fullName}
+          logo={u.logo}
           status={u.status}
           location={u.location}
         />

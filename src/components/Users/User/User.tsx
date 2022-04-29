@@ -6,13 +6,14 @@ export const User = ({
   id,
   followed,
   fullName,
+  logo,
   status,
   location,
 }: UsersPagePropsType): ReactElement => (
   <div key={id}>
     <div>
       <div>
-        <img src="qwe" alt="user-logo" />
+        <img src={logo} alt="user-logo" />
       </div>
       <div>
         {followed ? (
