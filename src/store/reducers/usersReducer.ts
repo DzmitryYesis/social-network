@@ -1,6 +1,23 @@
 import { FOLLOWED, SET_STATE, UNFOLLOWED } from 'store/actions';
 import { CommonActionsType, UsersReducerType } from 'types';
 
+type UsersReducerBLLType = {
+  users: UsersBLLType[];
+  totalCount: number;
+  error: string;
+};
+
+type UsersBLLType = {
+  id: number;
+  name: string;
+  status: string;
+  photos: {
+    small: string | null;
+    large: string | null;
+  };
+  followed: boolean;
+};
+
 const initialState = {
   users: [
     {
