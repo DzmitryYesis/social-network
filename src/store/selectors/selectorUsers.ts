@@ -1,5 +1,4 @@
 import { AppRootStateType } from 'store';
-import { UsersPagePropsType } from 'types';
+import { UsersBLLType } from 'store/reducers/usersReducer';
 
-export const selectUsers = (state: AppRootStateType): UsersPagePropsType[] =>
-  state.users.users;
+export const selectUsers = (state: AppRootStateType): UsersBLLType[] => state.users.users;
