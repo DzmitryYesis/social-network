@@ -16,10 +16,9 @@ export const Users = (): ReactElement => {
           key={u.id}
           id={u.id}
           followed={u.followed}
-          fullName={u.fullName}
-          logo={u.logo}
+          name={u.name}
+          photos={u.photos}
           status={u.status}
-          location={u.location}
         />
       ))}
     </div>
