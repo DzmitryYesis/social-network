@@ -18,10 +18,12 @@ export const UsersAPI = {
     return instance.get<UsersReducerBLLType>('users');
   },
 };
-
+const two = 2;
 export const getUsers = async (): Promise<any> => {
   const res = await UsersAPI.getUsers();
-  console.log(res.data.users);
+  // eslint-disable-next-line no-debugger
+  debugger;
+  console.log(JSON.stringify(res.data.items, null, two));
 };
 
 // export const getUsersTC = (): AppThunkType => async dispatch => {

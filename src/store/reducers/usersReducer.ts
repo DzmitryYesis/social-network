@@ -2,7 +2,7 @@ import { FOLLOWED, SET_STATE, UNFOLLOWED } from 'store/actions';
 import { CommonActionsType } from 'types';
 
 export type UsersReducerBLLType = {
-  users: UsersBLLType[];
+  items: UsersBLLType[];
   totalCount: number;
   error: string;
 };
@@ -92,12 +92,12 @@ export const usersReducer = (
 ): UsersReducerBLLType => {
   switch (action.type) {
     case SET_STATE: {
-      return { ...state, users: [...state.users, ...action.payload.state] };
+      return { ...state, items: [...state.items, ...action.payload.state] };
     }
     case FOLLOWED: {
       return {
         ...state,
-        users: state.users.map(u =>
+        items: state.items.map(u =>
           u.id === action.payload.userID ? { ...u, followed: true } : u,
         ),
       };
@@ -105,7 +105,7 @@ export const usersReducer = (
     case UNFOLLOWED: {
       return {
         ...state,
-        users: state.users.map(u =>
+        items: state.items.map(u =>
           u.id === action.payload.userID ? { ...u, followed: false } : u,
         ),
       };
