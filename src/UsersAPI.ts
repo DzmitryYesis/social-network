@@ -25,11 +25,13 @@ export const UsersAPI = {
 // };
 
 export const getUsersTC = (): AppThunkType => async dispatch => {
+  // eslint-disable-next-line no-debugger
+  debugger;
   try {
     const { data } = await UsersAPI.getUsers();
     // eslint-disable-next-line no-debugger
     debugger;
-    dispatch(setUsersAC(data.items));
+    dispatch(setUsersAC(data));
     // eslint-disable-next-line no-debugger
     debugger;
   } catch (error) {

@@ -92,7 +92,8 @@ export const usersReducer = (
 ): UsersReducerBLLType => {
   switch (action.type) {
     case SET_STATE: {
-      return { ...state, items: [...state.items, ...action.payload.state] };
+      // return { ...state, items: [...state.items, ...action.payload.state] };
+      return action.payload.state;
     }
     case FOLLOWED: {
       return {
