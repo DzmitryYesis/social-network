@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
@@ -14,20 +14,28 @@ import {
   Users,
 } from 'components';
 import { PATH } from 'enum';
+import { getUsersTC } from 'UsersAPI';
 
-export const App = (): ReactElement => (
-  <div className="app-wrapper">
-    <Header />
-    <Navbar />
-    <div className="app-wrapper-content">
-      <Routes>
-        <Route path={PATH.PROFILE} element={<Profile />} />
-        <Route path={PATH.DIALOGS} element={<DialogsContainer />} />
-        <Route path={PATH.USERS} element={<Users />} />
-        <Route path={PATH.NEWS} element={<News />} />
-        <Route path={PATH.MUSIC} element={<Music />} />
-        <Route path={PATH.SETTINGS} element={<Settings />} />
-      </Routes>
+export const App = (): ReactElement => {
+  useEffect(() => {
+    getUsersTC();
+    // getUsers();
+  }, []);
+
+  return (
+    <div className="app-wrapper">
+      <Header />
+      <Navbar />
+      <div className="app-wrapper-content">
+        <Routes>
+          <Route path={PATH.PROFILE} element={<Profile />} />
+          <Route path={PATH.DIALOGS} element={<DialogsContainer />} />
+          <Route path={PATH.USERS} element={<Users />} />
+          <Route path={PATH.NEWS} element={<News />} />
+          <Route path={PATH.MUSIC} element={<Music />} />
+          <Route path={PATH.SETTINGS} element={<Settings />} />
+        </Routes>
+      </div>
     </div>
-  </div>
-);
+  );
+};

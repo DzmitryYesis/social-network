@@ -1,11 +1,11 @@
-import { ReactElement, useEffect } from 'react';
+import { ReactElement } from 'react';
 
 import { useSelector } from 'react-redux';
 
 import { User } from './User';
 
 import { selectUsers } from 'store/selectors';
-import { getUsersTC } from 'UsersAPI';
+// import { getUsersTC } from 'UsersAPI';
 
 // import { UsersBLLType, UsersReducerBLLType } from 'store/reducers/usersReducer';
 // import { UsersAPI } from 'UsersAPI';
@@ -19,14 +19,14 @@ export const Users = (): ReactElement => {
   //
   // };
   // eslint-disable-next-line no-debugger
-  useEffect(() => {
-    getUsersTC();
-    // getUsers();
-  }, []);
+  // useEffect(() => {
+  //   getUsersTC();
+  //   // getUsers();
+  // }, []);
   // eslint-disable-next-line no-debugger
   return (
     <div>
-      {users.map(u => (
+      {users?.map(u => (
         <User
           key={u.id}
           id={u.id}
