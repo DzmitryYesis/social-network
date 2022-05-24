@@ -1,10 +1,11 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { User } from './User';
 
 import { selectUsers } from 'store/selectors';
+import { getUsersTC } from 'UsersAPI';
 // import { getUsersTC } from 'UsersAPI';
 
 // import { UsersBLLType, UsersReducerBLLType } from 'store/reducers/usersReducer';
@@ -24,6 +25,13 @@ export const Users = (): ReactElement => {
   //   // getUsers();
   // }, []);
   // eslint-disable-next-line no-debugger
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUsersTC());
+    // getUsers();
+  }, []);
+
   return (
     <div>
       {users?.map(u => (
