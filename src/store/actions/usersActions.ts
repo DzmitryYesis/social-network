@@ -1,33 +1,8 @@
-import { UsersReducerBLLType } from 'store/reducers/usersReducer';
-// import { UsersPagePropsType } from 'types';
+import { UsersReducerBLLType } from 'types';
 
 export const FOLLOWED = 'USERS/FOLLOWED';
 export const UNFOLLOWED = 'USERS/UNFOLLOWED';
 export const SET_STATE = 'USERS/SET-STATE';
-
-// export const followedAC = (userID: string) =>
-//   ({
-//     type: FOLLOWED,
-//     payload: {
-//       userID,
-//     },
-//   } as const);
-//
-// export const unFollowedAC = (userID: string) =>
-//   ({
-//     type: UNFOLLOWED,
-//     payload: {
-//       userID,
-//     },
-//   } as const);
-//
-// export const setUsersAC = (state: UsersPagePropsType[]) =>
-//   ({
-//     type: SET_STATE,
-//     payload: {
-//       state,
-//     },
-//   } as const);
 
 export const followedAC = (userID: number) =>
   ({
@@ -44,14 +19,6 @@ export const unFollowedAC = (userID: number) =>
       userID,
     },
   } as const);
-
-// export const setUsersAC = (state: UsersBLLType[]) =>
-//   ({
-//     type: SET_STATE,
-//     payload: {
-//       state,
-//     },
-//   } as const);
 
 export const setUsersAC = (state: UsersReducerBLLType) =>
   ({
