@@ -11,8 +11,8 @@ export type {
   MessageDataPropsType,
   ProfilePagePropsType,
   FriendsDataPropsType,
-  UsersReducerType,
-  UsersPagePropsType,
+  UsersReducerBLLType,
+  UsersBLLType,
 } from './reducersType';
 
 export type {

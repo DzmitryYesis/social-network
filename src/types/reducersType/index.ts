@@ -8,4 +8,4 @@ export type { ProfilePagePropsType } from './profileReducerType';
 
 export type { FriendsDataPropsType } from './sidebarReducerType';
 
-export type { UsersReducerType, UsersPagePropsType } from './usersReducerType';
+export type { UsersReducerBLLType, UsersBLLType } from './usersReducerType';
