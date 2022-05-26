@@ -20,3 +20,5 @@ export type {
   UserNamePropsType,
   DialogsMessagePropsType,
 } from './DialogComponentType';
+
+export type { AppThunkType } from './thunksType';

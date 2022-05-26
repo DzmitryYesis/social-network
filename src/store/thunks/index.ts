@@ -1,0 +1,1 @@
+export { getUsersTC } from './usersThunks';
