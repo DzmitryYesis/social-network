@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { User } from './User';
 
 import { selectUsers } from 'store/selectors';
-import { getUsersTC } from 'UsersAPI';
+import { getUsersTC } from 'store/thunks';
 
 export const Users = (): ReactElement => {
   const dispatch = useDispatch();
