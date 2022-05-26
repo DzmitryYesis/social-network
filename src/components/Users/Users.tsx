@@ -6,30 +6,14 @@ import { User } from './User';
 
 import { selectUsers } from 'store/selectors';
 import { getUsersTC } from 'UsersAPI';
-// import { getUsersTC } from 'UsersAPI';
-
-// import { UsersBLLType, UsersReducerBLLType } from 'store/reducers/usersReducer';
-// import { UsersAPI } from 'UsersAPI';
 
 export const Users = (): ReactElement => {
-  const users = useSelector(selectUsers);
-  // const getUsers = async (): Promise<UsersReducerBLLType> => {
-  //   // eslint-disable-next-line no-debugger
-  //   debugger;
-  //   const res = await UsersAPI.getUsers();
-  //
-  // };
-  // eslint-disable-next-line no-debugger
-  // useEffect(() => {
-  //   getUsersTC();
-  //   // getUsers();
-  // }, []);
-  // eslint-disable-next-line no-debugger
   const dispatch = useDispatch();
+
+  const users = useSelector(selectUsers);
 
   useEffect(() => {
     dispatch(getUsersTC());
-    // getUsers();
   }, []);
 
   return (
